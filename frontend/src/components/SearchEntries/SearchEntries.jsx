@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const SearchBar = (props) => {
+    const [user, token] = useAuth();
     const [search, setSearch] = useState([]);
 
     return (

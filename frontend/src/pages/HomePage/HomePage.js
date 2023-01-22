@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import DisplayEntries from "../../components/DisplayEntries/DisplayEntries";
 import axios from "axios";
 import SearchBar from "../../components/SearchEntries/SearchEntries";
+import AddEntry from "../../components/AddEntry/AddEntry";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -28,15 +29,36 @@ const HomePage = () => {
         console.log(error.response.data);
       }
     }
+
+    async function addNewEntry() {
+      try {
+        let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        console.log(response.data);
+        setEntry(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    }
     
   return (
     <>
       <div className="title-container">
         <h1>Home Page for {user.username}!</h1>
       </div>
-      <div className="search-bar">
-      <SearchBar entry={entry} />
+        <div>
+          <section className="modal">
+          </section>
+            <div className="add-entry">
+          <button className="add-button" onClick={() => AddEntry()}>
+            Add Entry
+          </button>
+        </div>
       </div>
+      <SearchBar entry={entry} />
       <div>
       <DisplayEntries parentEntries={entry} />
       </div>
