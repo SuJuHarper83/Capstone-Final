@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 const SearchBar = (props) => {
     const [user, token] = useAuth();
-    const [search, setSearch] = useState([]);
+    const [search, setSearch] = useState();
 
     return (
         <div className="search-bar">
@@ -25,6 +25,7 @@ const SearchBar = (props) => {
                             return entry;
                         } if (
                             entry.date.includes(search) ||
+                            entry.title.includes(search) ||
                             entry.input_a.includes(search) ||
                             entry.input_b.includes(search) ||
                             entry.input_c.includes(search)
