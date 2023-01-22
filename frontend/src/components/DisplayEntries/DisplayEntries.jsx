@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 
 const DisplayEntries = (props) => {
+    const [user, token] = useAuth();
 
     return (
         <>
