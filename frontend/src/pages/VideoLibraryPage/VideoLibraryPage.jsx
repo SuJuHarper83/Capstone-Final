@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import VideoList from "../../components/VideoList/VideoList";
 
 const VideoLibraryPage = () => {
 
@@ -27,8 +28,11 @@ const VideoLibraryPage = () => {
     return (
         <>
         <div>
-            
+            <VideoList VideoArray={video} />
         </div>
+        <li>
+            {/* <button onClick={() => navigate("/")}>Home</button> */}
+        </li>
         </>
     )
 }
