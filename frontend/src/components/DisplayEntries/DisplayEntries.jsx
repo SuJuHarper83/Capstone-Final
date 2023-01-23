@@ -1,6 +1,5 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
-import AddEntry from "../AddEntry/AddEntry";
 
 const DisplayEntries = (props) => {
     const [user, token] = useAuth();

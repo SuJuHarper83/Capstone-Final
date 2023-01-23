@@ -10,13 +10,13 @@ const Flexbox = styled.ul`
 
 const VideoList = (props) => {
     const [user, token] = useAuth();
-    // const [videoId, setVideoId] = useState();
+    const [videoId, setVideoId] = useState();
 
     return (
         // modal
         <Flexbox>
             {props.VideoArray.map((video, index) => (
-                <VideoGrid key={index} video={video.id} />
+                <VideoGrid key={index} video={video.id.id} />
             ))}
         </Flexbox>
     );

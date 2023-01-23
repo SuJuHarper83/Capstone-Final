@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 
 const NewJournalEntry = (props) => {
     const [user, token] = useAuth();
@@ -12,35 +11,20 @@ const NewJournalEntry = (props) => {
     const [mood, setMood] = useState("");
     const [image, setImage] = useState("");
 
-    useEffect(() => {
-    addNewEntry();
-  }, []);
-
-    async function addNewEntry() {
-                let newEntry = {
-                date: date,
-                input_a: input_a,
-                input_b: input_b,
-                input_c: input_c,
-                mood: mood,
-                image: image,
-            };
+    function handleSubmit(event) {
+        event.preventDefault();
+            let newEntry = {
+            date: date,
+            input_a: input_a,
+            input_b: input_b,
+            input_c: input_c,
+            mood: mood,
+            image: image,
+        };
+        console.log(newEntry);
+        props.addNewEntryProperty(newEntry)
+    }
         
-            let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
-                headers: {
-                    Authorization: "Bearer " + token,
-                },
-            });
-            console.log(response.data);
-            addNewEntry();
-            props.addNewEntryProperty(newEntry);
-            }
-
-            function handleSubmit(event) {
-                event.preventDefault();
-                addNewEntry();
-            }
-
             return (
                 <div className="entry-container">
                     <form onSubmit={handleSubmit} className="add-entry-table">

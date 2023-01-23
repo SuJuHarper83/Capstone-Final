@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import VideoLibraryPage from "./pages/VideoLibraryPage/VideoLibraryPage";
+import ExerciseLibraryPage from "./pages/ExerciseLibraryPage/ExerciseLibraryPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -20,7 +21,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <VideoLibraryPage />
+      <ExerciseLibraryPage />
       <Routes>
         <Route
           exact
@@ -39,6 +40,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/exercise_library" element={<PrivateRoute><ExerciseLibraryPage /></PrivateRoute>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

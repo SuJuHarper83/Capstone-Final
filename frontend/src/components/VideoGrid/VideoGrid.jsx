@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
-const Grid = styled.li`
+const VideoGrid = styled.li`
     width: 200px;
     padding: 1rem;
     display: grid;
@@ -16,12 +16,12 @@ const Grid = styled.li`
     font-size: smaller;
     `
 
-const VideoGrid = (video) => {
+const VideoList = (video) => {
     const [user, token] = useAuth();
     const [videoId, setVideoId] = useState();
 
     return (
-        <Grid
+        <VideoGrid
             style={{
                 backgroundColor: `${
                     colorArray[Math.floor(Math.random() * colorArray.length)]
@@ -29,10 +29,12 @@ const VideoGrid = (video) => {
             }}
         >
             <div onClick={() => setVideoId(videoId)}>
-                <img src={video.thumbnail} height="141" widght="256" alt="" />
+                <figure className="grid-item">
+                <img src={video.thumbnail} className="vid-image" height="141" widght="256" alt="" />
+                </figure>
             </div>
-        </Grid>
+        </VideoGrid>
     );
 };
 
-export default VideoGrid
+export default VideoList

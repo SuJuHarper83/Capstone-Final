@@ -30,19 +30,20 @@ const HomePage = () => {
       }
     }
 
-    // async function addNewEntry() {
-    //   try {
-    //     let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
-    //       headers: {
-    //         Authorization: "Bearer " + token,
-    //       },
-    //     });
-    //     console.log(response.data);
-    //     setEntry(response.data);
-    //   } catch (error) {
-    //     console.log(error.response.data);
-    //   }
-    // }
+    async function addNewEntry() {
+      try {
+        let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        console.log(response.data);
+        setEntry(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+        addNewEntry();
+      }
+    }
     
   return (
     <>
@@ -50,6 +51,9 @@ const HomePage = () => {
         <h1>Home Page for {user.username}!</h1>
       </div>
         <div>
+          <div>
+            
+          </div>
           <div className="add-entry">
             <button className="add-button" onClick={() => AddEntry()}>
               Add Entry
