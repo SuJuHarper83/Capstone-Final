@@ -17,7 +17,7 @@ const DisplayEntries = (props) => {
                         return (
                             <tr key={index}>
                                 <td className="display-td">{entry.date}</td>
-                                <td className="display-td">{entry.title}</td>
+                                <td className="display-td">{entry.entry_title}</td>
                             </tr>
                         );
                     })}

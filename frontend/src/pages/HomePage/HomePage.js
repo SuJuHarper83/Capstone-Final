@@ -4,19 +4,19 @@ import useAuth from "../../hooks/useAuth";
 import DisplayEntries from "../../components/DisplayEntries/DisplayEntries";
 import axios from "axios";
 import SearchBar from "../../components/SearchEntries/SearchEntries";
-import AddEntry from "../../components/AddEntry/AddEntry";
+import JournalEntryForm from "../../components/AddEntry/AddEntry";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   const [user, token] = useAuth();
-  const [entry, setEntry] = useState([]);
+  const [entry, setEntries] = useState([]);
 
   useEffect(() => {
-    getEntry();
+    getEntries();
   }, []);
 
-    async function getEntry() {
+    async function getEntries() {
       try {
         let response = await axios.get(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
           headers: {
@@ -24,24 +24,23 @@ const HomePage = () => {
           },
         });
         console.log(response.data);
-        setEntry(response.data);
+        setEntries(response.data);
       } catch (error) {
         console.log(error.response.data);
       }
     }
 
-    async function addNewEntry() {
+    async function addEntry(newEntry) {
       try {
-        let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
+        let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, newEntry, {
           headers: {
             Authorization: "Bearer " + token,
           },
         });
         console.log(response.data);
-        setEntry(response.data);
+        setEntries(response.data);
       } catch (error) {
         console.log(error.response.data);
-        addNewEntry();
       }
     }
     
@@ -51,14 +50,16 @@ const HomePage = () => {
         <h1>Home Page for {user.username}!</h1>
       </div>
         <div>
-          <div>
-            
+          <section className="modal-hidden">
+            <div className="flexbox">
+            <JournalEntryForm addNewEntryProperty={addEntry} />
           </div>
-          <div className="add-entry">
-            <button className="add-button" onClick={() => AddEntry()}>
+          </section>
+          {/* <div className="add-entry">
+            <button className="add-button" onClick={() => addNewEntry()}>
               Add Entry
             </button>
-          </div>
+          </div> */}
         </div>
       <SearchBar entry={entry} />
       <div>

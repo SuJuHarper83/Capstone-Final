@@ -20,7 +20,7 @@ const ExerciseGrid = styled.li`
 const ExerciseList = (exercise) => {
   const [user, token] = useAuth();
   const [exerciseId, setExerciseId] = useState();
-  const { title } = useParams();
+  const { ex_title } = useParams();
 
   return (
     <ExerciseGrid
@@ -31,7 +31,7 @@ const ExerciseList = (exercise) => {
       }}
     >
       <div onClick={() =>setExerciseId(exerciseId)}>
-        <p>{exercise.title}</p>
+        <p>{exercise.ex_title}</p>
       </div>
     </ExerciseGrid>
   );

@@ -25,7 +25,7 @@ const SearchBar = (props) => {
                             return entry;
                         } if (
                             entry.date.includes(search) ||
-                            entry.title.includes(search) ||
+                            entry.entry_title.includes(search) ||
                             entry.input_a.includes(search) ||
                             entry.input_b.includes(search) ||
                             entry.input_c.includes(search)
@@ -39,7 +39,7 @@ const SearchBar = (props) => {
                                 <table>
                                     <tr key={index}>
                                         <td className="search-td">{entry.date}</td>
-                                        <td className="search-td">{entry.title}</td>
+                                        <td className="search-td">{entry.entry_title}</td>
                                     </tr>
                                 </table>
                             </div>

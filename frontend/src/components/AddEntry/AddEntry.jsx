@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
-const NewJournalEntry = (props) => {
+const JournalEntryForm = (props) => {
     const [user, token] = useAuth();
     const [date, setDate] = useState("");
-    const [title, setTitle] = useState("");
+    const [entry_title, setEntryTitle] = useState("");
     const [input_a, setInputA] = useState("");
     const [input_b, setInputB] = useState("");
     const [input_c, setInputC] = useState("");
@@ -15,6 +15,7 @@ const NewJournalEntry = (props) => {
         event.preventDefault();
             let newEntry = {
             date: date,
+            entry_title: entry_title,
             input_a: input_a,
             input_b: input_b,
             input_c: input_c,
@@ -22,7 +23,7 @@ const NewJournalEntry = (props) => {
             image: image,
         };
         console.log(newEntry);
-        props.addNewEntryProperty(newEntry)
+        props.addNewEntryProperty(newEntry);
     }
         
             return (
@@ -42,8 +43,8 @@ const NewJournalEntry = (props) => {
                             <input
                                 type="text"
                                 className="form-control"
-                                value={title}
-                                onChange={(event) => setTitle(event.target.value)}
+                                value={entry_title}
+                                onChange={(event) => setEntryTitle(event.target.value)}
                             />
                         </p>
                         <p>
@@ -102,4 +103,4 @@ const NewJournalEntry = (props) => {
         );
 };
 
-export default NewJournalEntry
+export default JournalEntryForm
