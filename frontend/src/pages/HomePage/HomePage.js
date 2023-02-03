@@ -17,31 +17,23 @@ const HomePage = () => {
   }, []);
 
     async function getEntries() {
-      try {
         let response = await axios.get(`http://127.0.0.1:8000/api/capstone/addEntry/`, {
           headers: {
             Authorization: "Bearer " + token,
           },
         });
-        console.log(response.data);
-        setEntries(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
+        console.log(response.data)
+        setEntries(response.data)
     }
 
     async function addEntry(newEntry) {
-      try {
         let response = await axios.post(`http://127.0.0.1:8000/api/capstone/addEntry/`, newEntry, {
           headers: {
             Authorization: "Bearer " + token,
           },
         });
-        console.log(response.data);
-        setEntries(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
+        console.log(response.data)
+        getEntries()
     }
     
   return (

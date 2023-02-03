@@ -1,33 +1,32 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import ExerciseResults from "../../components/ExerciseResults/ExerciseResults";
 import NewExerciseEntry from "../../components/AddExercise/AddExercise";
+import Modal from "react-modal";
 
 
 const ExerciseLibraryPage = () => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
+  const modal = document.querySelector(".exercise-modal");
+  const btn = document.querySelector(".btn-open");
+  const span = document.querySelector(".btn-close");
 
   useEffect(() => {
     getExercises();
   }, []);
 
   async function getExercises() {
-    try {
       let response = await axios.get(
         `http://127.0.0.1:8000/api/capstone/getExercises/`,
         { headers: { Authorization: "Bearer " + token } }
       );
-      console.log(response.data);
-      setExercises(response.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+      console.log(response.data)
+      setExercises(response.data)
   }
 
   async function addExercise(newExercise) {
-    try {
       let response = await axios.post(
         `http://127.0.0.1:8000/api/capstone/getExercises/`, newExercise,
         {
@@ -36,26 +35,28 @@ const ExerciseLibraryPage = () => {
           },
         }
       );
-      console.log(response.data);
-      setExercises(response.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+      console.log(response.data)
+      getExercises()
+  }
+
+  const openModal = function () {
+    modal.style.display = "block";
   }
 
   return (
     <>
       <div>
-        <ExerciseResults ExerciseArray={exercise} />
+        <ExerciseResults parentEntries={exercise} />
       </div>
-      <div>
-        <NewExerciseEntry addNewExerciseProperty={addExercise} />
+      <div id="exercise-modal">
+        <div className="modal-content">
+            <span className="btn-close">x</span>
+            <NewExerciseEntry addNewExerciseProperty={addExercise} />
+        </div>
       </div>
-      {/* <div className="add-entry">
-        <button className="add-button" onClick={() => addNewExercise()}>
+        <button id="btn-open" onClick={() => openModal()}>
           Add Exercise
         </button>
-      </div> */}
     </>
   );
 };
