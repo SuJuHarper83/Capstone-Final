@@ -1,5 +1,6 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ExerciseGrid from "../ExerciseList/ExerciseList"
 
@@ -15,14 +16,18 @@ const ExerciseResults = (props) => {
        <>
        <div className="exercise-display">
         <table className="exercise-table">
+            <tbody>
             <tr className="exercise-td" />
                 {props.parentEntries.map((exercise, index) => {
                     return (
                         <tr key={index}>
-                          <td className="ex-td">{exercise.ex_title}</td>
+                          <td className="item-display"> 
+                            <Link to={`/${exercise.id}`}>{exercise.ex_title}</Link>
+                          </td>
                         </tr> 
                 );
             })}
+            </tbody>
         </table>
        </div>
        </>

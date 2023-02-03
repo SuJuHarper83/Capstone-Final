@@ -3,7 +3,6 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import ExerciseResults from "../../components/ExerciseResults/ExerciseResults";
 import NewExerciseEntry from "../../components/AddExercise/AddExercise";
-import Modal from "react-modal";
 import "./ExerciseLibraryPage.css";
 
 

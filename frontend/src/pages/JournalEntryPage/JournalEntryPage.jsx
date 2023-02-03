@@ -13,19 +13,19 @@ const JournalEntryPage = () => {
     getEntry();
   }, []);
 
-  async function getEntry() {
+  async function getEntry(entry) {
     let response = await axios.get(
-      `http://127.0.0.1:8000/api/capstone/getEntry/${id}/`,
+      `http://127.0.0.1:8000/api/capstone/addEntry/${id}/`,
       entry,
-      { headers: { Authorization: "Bearer " + token } }
+      { headers: { Authorization: "Bearer " + token, }, }
     );
-    console.log(response.data)
-    viewEntry(response.data)
+    console.log(response.data);
+    viewEntry(response.data);
   }
 
     return (
       <>
-        <div className="title">
+        <div className="entry-title">
           <h4>{entry.entry_title}</h4>
         </div>
         <div className="entry">

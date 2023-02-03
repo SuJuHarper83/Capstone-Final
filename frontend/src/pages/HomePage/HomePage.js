@@ -5,7 +5,6 @@ import DisplayEntries from "../../components/DisplayEntries/DisplayEntries";
 import axios from "axios";
 import SearchBar from "../../components/SearchEntries/SearchEntries";
 import JournalEntryForm from "../../components/AddEntry/AddEntry";
-import ReactModal from "react-modal";
 import "./HomePage.css";
 
 const HomePage = () => {

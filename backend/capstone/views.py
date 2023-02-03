@@ -31,6 +31,16 @@ def exercise_library(request):
 
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+@api_view (['GET'])
+@permission_classes ([IsAuthenticated])
+def exercise_by_id(request, pk):
+    print(
+        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+    exercise = get_object_or_404(Exercise, pk=pk)
+    if request.method == 'GET': #200 OK
+        serializer = ExerciseSerializer(exercise);
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 @api_view (['GET'])
 @permission_classes ([IsAuthenticated])

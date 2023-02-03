@@ -17,10 +17,10 @@ const DisplayEntries = (props) => {
                     {props.parentEntries.map((entry, index) => {
                         return (
                             <tr key={index}>
-                                <Link to={`/${entry.id}`}>
-                                <td className="display-td">{entry.date}</td>
-                                <td className="display-td">{entry.entry_title}</td>
-                                </Link>
+                                <td className="entry-display">
+                                <Link to={`/${entry.id}`}>{entry.date}  </Link>
+                                <Link to={`/${entry.id}`}>{entry.entry_title}</Link>
+                                </td>
                             </tr>
                         );
                     })}
