@@ -49,6 +49,10 @@ button:hover {
     align-items: right;
 }
 
+.btn-close:hover {
+    cursor: pointer;
+}
+
 .overlay {
     z-index: 1;
     position: fixed;

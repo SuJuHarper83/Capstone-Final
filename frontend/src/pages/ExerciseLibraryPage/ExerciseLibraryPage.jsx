@@ -12,8 +12,8 @@ const ExerciseLibraryPage = () => {
   const [exercise, setExercises] = useState([]);
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
-  const btn = document.querySelector(".btn-open");
-  const span = document.querySelector(".btn-close");
+  const openModalBtn = document.querySelector(".btn-open");
+  const closeModalBtn = document.querySelector(".btn-close");
 
   useEffect(() => {
     getExercises();
