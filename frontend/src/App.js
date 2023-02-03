@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      {<JournalEntryPage />}
+      <ExerciseLibraryPage />
       <Routes>
         <Route
           exact
@@ -49,9 +49,9 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/entry/:id" element={<PrivateRoute><JournalEntryPage /></PrivateRoute>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/:id" element={<PrivateRoute><JournalEntryPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

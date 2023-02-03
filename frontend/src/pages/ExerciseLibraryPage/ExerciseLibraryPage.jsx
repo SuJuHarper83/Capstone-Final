@@ -4,12 +4,14 @@ import axios from "axios";
 import ExerciseResults from "../../components/ExerciseResults/ExerciseResults";
 import NewExerciseEntry from "../../components/AddExercise/AddExercise";
 import Modal from "react-modal";
+import "./ExerciseLibraryPage.css";
 
 
 const ExerciseLibraryPage = () => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
-  const modal = document.querySelector(".exercise-modal");
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
   const btn = document.querySelector(".btn-open");
   const span = document.querySelector(".btn-close");
 
@@ -40,23 +42,30 @@ const ExerciseLibraryPage = () => {
   }
 
   const openModal = function () {
-    modal.style.display = "block";
-  }
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  };
+
+  const closeModal = function () {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  };
 
   return (
     <>
       <div>
         <ExerciseResults parentEntries={exercise} />
       </div>
-      <div id="exercise-modal">
-        <div className="modal-content">
-            <span className="btn-close">x</span>
+      <section className="modal hidden">
+        <div className="flex">
+            <span className="btn-close" onClick={() => closeModal()}>x</span>
             <NewExerciseEntry addNewExerciseProperty={addExercise} />
         </div>
-      </div>
-        <button id="btn-open" onClick={() => openModal()}>
-          Add Exercise
-        </button>
+      </section>
+      <div className="overlay hidden"></div>
+      <button className="btn-open" onClick={() => openModal()}>
+        Add Exercise
+      </button>
     </>
   );
 };
