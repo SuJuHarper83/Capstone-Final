@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import VideoLibraryPage from "./pages/VideoLibraryPage/VideoLibraryPage";
 import ExerciseLibraryPage from "./pages/ExerciseLibraryPage/ExerciseLibraryPage";
+import JournalEntryPage from "./pages/JournalEntryPage/JournalEntryPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -21,7 +22,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <ExerciseLibraryPage />
+      {<JournalEntryPage />}
       <Routes>
         <Route
           exact
@@ -40,7 +41,15 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/exercise_library" element={<PrivateRoute><ExerciseLibraryPage /></PrivateRoute>} />
+        <Route
+          path="/exercise_library"
+          element={
+            <PrivateRoute>
+              <ExerciseLibraryPage />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/entry/:id" element={<PrivateRoute><JournalEntryPage /></PrivateRoute>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

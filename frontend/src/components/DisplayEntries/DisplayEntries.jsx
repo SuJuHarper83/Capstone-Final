@@ -1,5 +1,6 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const DisplayEntries = (props) => {
     const [user, token] = useAuth();
@@ -16,8 +17,10 @@ const DisplayEntries = (props) => {
                     {props.parentEntries.map((entry, index) => {
                         return (
                             <tr key={index}>
+                                <Link to={`/${entry.id}`}>
                                 <td className="display-td">{entry.date}</td>
                                 <td className="display-td">{entry.entry_title}</td>
+                                </Link>
                             </tr>
                         );
                     })}
