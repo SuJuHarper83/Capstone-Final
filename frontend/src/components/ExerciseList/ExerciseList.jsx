@@ -1,40 +1,45 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import useAuth from "../../hooks/useAuth";
-import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import ExerciseDisplay from "../ExerciseGrid/ExerciseGrid";
 
-const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
-
-const ExerciseGrid = styled.li`
-  width: 200px;
-  padding: 1rem;
-  display: grid;
-  column-gap: 1px;
-  content: center;
-  box-shadow: 2px 8px 16px -2px rgba(19, 57, 94, 0.486);
-  margin: 1rem;
-  border-radius: 10px;
-  font-size: smaller;
+const FlexBox = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-const ExerciseList = (exercise) => {
+const ExerciseList = (props) => {
   const [user, token] = useAuth();
-  const [exerciseId, setExerciseId] = useState();
-  const { ex_title } = useParams();
 
   return (
-    <ExerciseGrid
-      style={{
-        backgroundColor: `${
-          colorArray[Math.floor(Math.random() * colorArray.length)]
-        }`,
-      }}
-    >
-      <div onClick={() =>setExerciseId(exerciseId)}>
-        <p>{exercise.ex_title}</p>
-      </div>
-    </ExerciseGrid>
+    <>
+      <FlexBox>
+        {props.parentEntries.map((exercise) => (
+          <li key={exercise.id}>{exercise.ex_title}</li>
+        ))}{" "}
+        // replace li w/ ExerciseDisplay
+      </FlexBox>
+    </>
   );
 };
 
 export default ExerciseList;
+
+{
+  /* <div className="exercise-display">
+        <table className="exercise-table">
+            <tbody>
+            <tr className="exercise-td" />
+                {props.parentEntries.map((exercise) => {
+                    return (
+                        <tr key={exercise.id}>
+                            <td className="exercise-display"> 
+                            <Link to={`/${exercise.id}`}>{exercise.ex_title}</Link>
+                            </td>
+                        </tr> 
+                );
+            })}
+            </tbody>
+        </table>
+       </div> */
+}

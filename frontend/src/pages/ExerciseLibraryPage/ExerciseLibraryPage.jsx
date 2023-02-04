@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import ExerciseResults from "../../components/ExerciseResults/ExerciseResults";
+import ExerciseList from "../../components/ExerciseList/ExerciseList";
 import NewExerciseEntry from "../../components/AddExercise/AddExercise";
-import ExerciseItem from "../../components/ExerciseItem/ExerciseItem";
 import "./ExerciseLibraryPage.css";
 
 
@@ -54,10 +53,7 @@ const ExerciseLibraryPage = () => {
   return (
     <>
       <div>
-        <ExerciseResults parentEntries={exercise} />
-      </div>
-      <div>
-        <ExerciseItem exercise={exercise} />
+        <ExerciseList parentEntries={exercise} />
       </div>
       <section className="modal hidden">
         <div className="flex">

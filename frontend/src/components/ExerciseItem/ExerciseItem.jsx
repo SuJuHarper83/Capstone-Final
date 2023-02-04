@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useParams } from "react-router-dom";
 
 const ExerciseItem = (props) => {
   const [user, token] = useAuth();
@@ -19,18 +19,18 @@ const ExerciseItem = (props) => {
       { headers: { Authorization: "Bearer " + token } }
     );
     console.log(response.data);
-    setExercise(props.exercise);
+    setExercise();
   }
-
+  
   return (
     <>
       <div className="ex-title">
-        <h4>{exercise.ex_title}</h4>
+        <h4>{props.ex_title}</h4>
       </div>
       <div className="exercise">
-        <p>{exercise.input_e}</p>
+        <p>{props.input_e}</p>
         <br />
-        <p>{exercise.input_f}</p>
+        <p>{props.input_f}</p>
       </div>
     </>
   );
