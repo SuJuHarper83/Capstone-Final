@@ -1,13 +1,6 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import ExerciseGrid from "../ExerciseList/ExerciseList"
-
-// const FlexBox = styled.ul`
-// display: flex;
-// flex-wrap: wrap;
-// `
 
 const ExerciseResults = (props) => {
     const [user, token] = useAuth();
@@ -18,12 +11,12 @@ const ExerciseResults = (props) => {
         <table className="exercise-table">
             <tbody>
             <tr className="exercise-td" />
-                {props.parentEntries.map((exercise, index) => {
+                {props.parentEntries.map((exercise) => {
                     return (
-                        <tr key={index}>
-                          <td className="item-display"> 
+                        <tr key={exercise.id}>
+                            <td className="exercise-display"> 
                             <Link to={`/${exercise.id}`}>{exercise.ex_title}</Link>
-                          </td>
+                            </td>
                         </tr> 
                 );
             })}
@@ -31,11 +24,6 @@ const ExerciseResults = (props) => {
         </table>
        </div>
        </>
-        // <FlexBox>
-        //     {props.ExerciseArray.map((exercise, index) => (
-        //         <ExerciseGrid key={index} exercise={exercise.id.id} />
-        //     ))}
-        // </FlexBox>
     );
 };
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const newExerciseEntry = (props) => {
-    // const [user, token] = useAuth();
+    const [user, token] = useAuth();
     const [ex_title, setExTitle] = useState("");
     const [input_d, setInputD] = useState("");
     const [input_e, setInputE] = useState("");

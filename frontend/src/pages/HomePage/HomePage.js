@@ -73,7 +73,6 @@ const HomePage = () => {
         <button className="button-open" onClick={() => openModal()}>
           Add Entry
         </button>
-      <SearchBar entry={entry} />
       <div>
         <DisplayEntries parentEntries={entry} />
       </div>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const JournalEntryForm = (props) => {
-    // const [user, token] = useAuth();
+    const [user, token] = useAuth();
     const [date, setDate] = useState("");
     const [entry_title, setEntryTitle] = useState("");
     const [input_a, setInputA] = useState("");

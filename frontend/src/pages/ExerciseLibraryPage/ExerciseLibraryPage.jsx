@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import ExerciseResults from "../../components/ExerciseResults/ExerciseResults";
 import NewExerciseEntry from "../../components/AddExercise/AddExercise";
+import ExerciseItem from "../../components/ExerciseItem/ExerciseItem";
 import "./ExerciseLibraryPage.css";
 
 
@@ -23,8 +24,8 @@ const ExerciseLibraryPage = () => {
         `http://127.0.0.1:8000/api/capstone/getExercises/`,
         { headers: { Authorization: "Bearer " + token } }
       );
-      console.log(response.data)
-      setExercises(response.data)
+      console.log(response.data);
+      setExercises(response.data);
   }
 
   async function addExercise(newExercise) {
@@ -36,8 +37,8 @@ const ExerciseLibraryPage = () => {
           },
         }
       );
-      console.log(response.data)
-      getExercises()
+      console.log(response.data);
+      getExercises();
   }
 
   const openModal = function () {
@@ -54,6 +55,9 @@ const ExerciseLibraryPage = () => {
     <>
       <div>
         <ExerciseResults parentEntries={exercise} />
+      </div>
+      <div>
+        <ExerciseItem exercise={exercise} />
       </div>
       <section className="modal hidden">
         <div className="flex">
