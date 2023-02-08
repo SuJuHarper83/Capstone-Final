@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const VideoGrid = styled.li`
-  width: 200px;
+  width: 290px;
+  resizable: True;
   padding: 1rem;
   display: grid;
   column-gap: 1px;
@@ -28,7 +30,7 @@ const VideoDisplay = (video) => {
         }`,
       }}
     >
-      <div onClick={() => setVideoId(videoId)}>
+      <Link to={`/${video.video}`}>
         <figure className="grid-item">
           <img
             src={video.thumbnail}
@@ -37,8 +39,10 @@ const VideoDisplay = (video) => {
             width="256"
             alt=""
           />
+          <br />
+        {video.video_title}
         </figure>
-      </div>
+      </Link>
     </VideoGrid>
   );
 };

@@ -74,7 +74,7 @@ const HomePage = () => {
           Add Entry
         </button>
       <div>
-        <DisplayEntries parentEntries={entry} />
+        <DisplayEntries entry={entry} />
       </div>
     </>
   );

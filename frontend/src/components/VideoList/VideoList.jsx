@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
 import VideoDisplay from "../VideoGrid/VideoGrid";
-import VideoGrid from "../VideoGrid/VideoGrid";
 
 const FlexBox = styled.ul`
   display: flex;
@@ -22,7 +21,7 @@ const VideoList = (props) => {
             <img src={video.thumbnail} />
             <br />    
             {video.video_title}
-          </VideoDisplay>
+          </VideoDisplay> //data disappears afte VideoDisplay replaces <li>
         ))}
       </FlexBox>
     </>

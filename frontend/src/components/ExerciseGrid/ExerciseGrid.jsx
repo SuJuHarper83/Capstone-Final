@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const ExerciseGrid = styled.li`
-  width: 100px;
+  width: 150px;
   padding: 1rem;
   display: grid;
   column-gap: 1px;
@@ -17,7 +17,7 @@ const ExerciseGrid = styled.li`
   font-size: smaller;
 `;
 
-const ExerciseDisplay = ({ exercise }) => {
+const ExerciseDisplay = (exercise) => {
   const [user, token] = useAuth();
   const [exerciseId, setExerciseId] = useState();
 
@@ -30,8 +30,8 @@ const ExerciseDisplay = ({ exercise }) => {
           }`,
         }}
       >
-        <Link to={`/${exercise.id}`}> //error: id not defined
-          {exercise.ex_title} //error: ex_title not defined
+        <Link to={`/${exercise.id}`}>
+          <p>{exercise.ex_title}</p>
         </Link>
       </ExerciseGrid>
     </>

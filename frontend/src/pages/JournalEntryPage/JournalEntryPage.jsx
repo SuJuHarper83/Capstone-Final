@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
+
 const JournalEntryPage = () => {
   const [user, token] = useAuth();
   const [entry, viewEntry] = useState([]);
@@ -38,7 +39,7 @@ const JournalEntryPage = () => {
         <p>{entry.mood}</p>
         <br />
         <br />
-        <img src={entry.image} alt="blank" />
+        <img src={require`/media/{entry.image}`} alt="blank" />
       </div>
     </>
   );

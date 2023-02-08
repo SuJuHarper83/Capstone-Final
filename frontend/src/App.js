@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <VideoLibraryPage />
+      <ExerciseLibraryPage />
       <Routes>
         <Route
           exact

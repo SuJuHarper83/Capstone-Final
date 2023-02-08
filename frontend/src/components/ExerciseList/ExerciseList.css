@@ -6,8 +6,15 @@
   box-sizing: inherit;
 }
 
-.exercise-table {
-    display: grid;
-    width: 200px;
-
+.exercise-grid {
+  width: 200px;
+  height: 50px;
+  padding: 1rem;
+  display: grid;
+  column-gap: 1px;
+  content: center;
+  box-shadow: 2px 8px 16px -2px rgba(19, 57, 94, 0.486);
+  margin: 1rem;
+  border-radius: 30px;
+  font-size: smaller;
 }

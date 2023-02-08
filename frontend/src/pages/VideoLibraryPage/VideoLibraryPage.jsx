@@ -26,9 +26,6 @@ const VideoLibraryPage = () => {
         <div>
             <VideoList parentEntries={video} />
         </div>
-        <li>
-            {/* <button onClick={() => navigate("/")}>Home</button> */}
-        </li>
         </>
     )
 }

@@ -6,21 +6,6 @@ import { useParams } from "react-router-dom";
 
 const ExerciseItem = (props) => {
   const [user, token] = useAuth();
-  const [exercise, setExercise] = useState([]);
-  const { id } = useParams();
-
-  useEffect(() => {
-    getExerciseById();
-  }, []);
-
-  async function getExerciseById() {
-    let response = await axios.get(
-      `http://127.0.0.1:8000/api/capstone/getExercises/${id}/`,
-      { headers: { Authorization: "Bearer " + token } }
-    );
-    console.log(response.data);
-    setExercise();
-  }
   
   return (
     <>

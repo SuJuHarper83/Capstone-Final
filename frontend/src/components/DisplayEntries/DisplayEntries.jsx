@@ -23,7 +23,7 @@ const DisplayEntries = (props) => {
               <th className="display-th">Date</th>
               <th className="display-th">Title</th>
             </tr>
-            {props.parentEntries
+            {props.entry
               .filter((entry) => {
                 if (
                   entry.date.toLowerCase().includes(search.toLowerCase()) ||

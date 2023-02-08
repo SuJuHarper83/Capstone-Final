@@ -14,7 +14,7 @@ const ExerciseList = (props) => {
   return (
     <>
       <FlexBox>
-        {props.parentEntries.map((exercise) => (
+        {props.entries.map((exercise) => (
           <li key={exercise.id}>{exercise.ex_title}</li>
         ))}{" "}
         // replace li w/ ExerciseDisplay
