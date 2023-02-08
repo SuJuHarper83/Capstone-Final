@@ -1,45 +1,50 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
-import ExerciseDisplay from "../ExerciseGrid/ExerciseGrid";
+import { Link, useParams } from "react-router-dom";
 
 const FlexBox = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
 
+const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
+
+const ExerciseGrid = styled.li`
+  height: 50px;
+  width: 150px;
+  padding: 1rem;
+  display: grid;
+  column-gap: 1px;
+  content: center;
+  box-shadow: 2px 8px 16px -2px rgba(19, 57, 94, 0.486);
+  margin: 1rem;
+  border-radius: 30px;
+  font-size: smaller;
+`;
+
 const ExerciseList = (props) => {
   const [user, token] = useAuth();
+  const { exercise, id } = useParams();
 
   return (
     <>
       <FlexBox>
         {props.entries.map((exercise) => (
-          <li key={exercise.id}>{exercise.ex_title}</li>
+          <Link to={`/${exercise.id}`}>
+          <ExerciseGrid 
+          style={{
+            backgroundColor: `${
+              colorArray[Math.floor(Math.random() * colorArray.length)]
+            }`,
+          }}
+        >
+          <li key={exercise.id}>{exercise.ex_title}</li></ExerciseGrid>
+          </Link>
         ))}{" "}
-        // replace li w/ ExerciseDisplay
       </FlexBox>
     </>
   );
 };
 
 export default ExerciseList;
-
-{
-  /* <div className="exercise-display">
-        <table className="exercise-table">
-            <tbody>
-            <tr className="exercise-td" />
-                {props.parentEntries.map((exercise) => {
-                    return (
-                        <tr key={exercise.id}>
-                            <td className="exercise-display"> 
-                            <Link to={`/${exercise.id}`}>{exercise.ex_title}</Link>
-                            </td>
-                        </tr> 
-                );
-            })}
-            </tbody>
-        </table>
-       </div> */
-}

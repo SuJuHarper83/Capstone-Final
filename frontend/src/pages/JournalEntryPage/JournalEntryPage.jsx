@@ -39,7 +39,7 @@ const JournalEntryPage = () => {
         <p>{entry.mood}</p>
         <br />
         <br />
-        <img src={require`/media/{entry.image}`} alt="blank" />
+        {/* <img src={require`/media/{entry.image}`} alt="blank" /> */}
       </div>
     </>
   );
