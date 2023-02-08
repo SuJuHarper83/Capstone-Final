@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import ExerciseList from "../../components/ExerciseList/ExerciseList";
 import NewExerciseEntry from "../../components/AddExercise/AddExercise";
 import ExerciseItem from "../../components/ExerciseItem/ExerciseItem";
@@ -10,6 +11,7 @@ import "./ExerciseLibraryPage.css";
 const ExerciseLibraryPage = () => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
+  const { id } = useParams();
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const openModalBtn = document.querySelector(".btn-open");
@@ -41,6 +43,14 @@ const ExerciseLibraryPage = () => {
       getExercises();
   }
 
+  async function getExercise() {
+    let response = await axios.get(
+      `http://127.0.0.1:8000/api/capstone/getExercises/${id}/`,
+      { headers: { Authorization: "Bearer " + token } }
+    );
+    console.log(response.data);
+  }
+
   const openModal = function () {
     modal.classList.remove("hidden");
     overlay.classList.remove("hidden");
@@ -56,9 +66,15 @@ const ExerciseLibraryPage = () => {
       <div>
         <ExerciseList entries={exercise} />
       </div>
-      <div>
-        <ExerciseItem entry={exercise} />
-      </div>
+      <section className="modal2 hidden">
+        <div classname="flex2">
+            <span className="btn-close" onClick={() => closeModal()}>x</span>
+            <ExerciseItem entry={getExercise} />
+        </div>
+      </section>
+      <div className="overlay2 hidden"></div>
+      <button className="btn-open" onClick={() => openModal()}>
+      </button>
       <section className="modal hidden">
         <div className="flex">
             <span className="btn-close" onClick={() => closeModal()}>x</span>

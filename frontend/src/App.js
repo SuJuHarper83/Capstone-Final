@@ -14,6 +14,7 @@ import JournalEntryPage from "./pages/JournalEntryPage/JournalEntryPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import ExerciseItem from "./components/ExerciseItem/ExerciseItem";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -51,7 +52,22 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/:id" element={<PrivateRoute><JournalEntryPage /></PrivateRoute>} />
+        <Route
+          path="/:id"
+          element={
+            <PrivateRoute>
+              <JournalEntryPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/:id"
+          element={
+            <PrivateRoute>
+              <ExerciseItem />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
     </div>
