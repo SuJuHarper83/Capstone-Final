@@ -13,17 +13,17 @@ const JournalEntryForm = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-            let newEntry = {
-            date: date,
-            entry_title: entry_title,
-            input_a: input_a,
-            input_b: input_b,
-            input_c: input_c,
-            mood: mood,
-            file: file,
-        };
-        console.log(newEntry);
-        props.addNewEntryProperty(newEntry);
+            let form_data = new FormData ()
+            form_data.append('date', date);
+            form_data.append('entry_title', entry_title);
+            form_data.append('input_a', input_a);
+            form_data.append('input_b', input_b);
+            form_data.append('input_c', input_c);
+            form_data.append('mood', Number(mood));
+            form_data.append('image', file)
+
+        console.log(form_data);
+        props.addNewEntryProperty(form_data);
     }
         
             return (

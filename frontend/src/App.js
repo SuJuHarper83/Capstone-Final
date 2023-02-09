@@ -50,6 +50,14 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/exercise_library/:id"
+          element={
+            <PrivateRoute>
+              <ExerciseItem />
+            </PrivateRoute>
+          }
+        />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
@@ -57,14 +65,6 @@ function App() {
           element={
             <PrivateRoute>
               <JournalEntryPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/:id"
-          element={
-            <PrivateRoute>
-              <ExerciseItem />
             </PrivateRoute>
           }
         />

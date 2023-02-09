@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
+import "./ExerciseList.css";
 
 const FlexBox = styled.ul`
   display: flex;
@@ -20,17 +21,17 @@ const ExerciseGrid = styled.li`
   box-shadow: 2px 8px 16px -2px rgba(19, 57, 94, 0.486);
   margin: 1rem;
   border-radius: 40px;
-  font-size: xx-small;
 `;
 
 const ExerciseList = (props) => {
   const [user, token] = useAuth();
-  const { exercise, id } = useParams();
+  const { id } = useParams();
 
   return (
     <>
+      <div>
       <FlexBox>
-        {props.entries.map((exercise) => (
+        {props.exercise.map((exercise) => (
           <Link to={`/${exercise.id}`}>
           <ExerciseGrid 
           style={{
@@ -43,6 +44,7 @@ const ExerciseList = (props) => {
           </Link>
         ))}
       </FlexBox>
+      </div>
     </>
   );
 };

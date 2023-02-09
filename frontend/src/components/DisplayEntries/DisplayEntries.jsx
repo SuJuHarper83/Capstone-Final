@@ -10,13 +10,14 @@ const DisplayEntries = (props) => {
 
   return (
     <>
-      <div className="box">
-        <input
+      <div className="wrapper">
+        <input className="input"
           type="text"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
       </div>
+      <br />
       <div className="entry-display">
         <table className="display-table">
           <tbody>
@@ -52,6 +53,10 @@ const DisplayEntries = (props) => {
           </tbody>
         </table>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

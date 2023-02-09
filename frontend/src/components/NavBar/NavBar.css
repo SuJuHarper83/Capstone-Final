@@ -8,22 +8,40 @@ li {
   font-size: 1.25rem;
 }
 
-.navBar {
+.sideNav {
   background: steelblue;
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
-  padding: 1.5rem 2rem;
+  padding-top: 60px;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
-.navBar button {
+.span {
+  font-size: 30px;
+
+}
+
+.span:hover {
+  cursor: pointer;
+}
+
+
+.sideNav button {
   background: transparent;
   border: 2px solid white;
   color: white;
   padding: 0.4rem 0.5rem;
 }
 
-.navBar button:hover {
+.sideNav button:hover {
   background: white;
   color: steelblue;
   cursor: pointer;

@@ -41,8 +41,9 @@ const JournalEntryPage = () => {
         <p>{entry.mood}</p>
         <br />
         <br />
-        {/* <img src={require`/media/{entry.image}`} alt="blank" /> */}
+        <img src={`http://127.0.0.1:8000${entry.image}`}/>
       </div>
+      <button onClick={() => navigate(-1)}>Go back</button>
       <button onClick={() => navigate("/")}>Home</button>
       <br />
       <br />

@@ -6,10 +6,12 @@
   box-sizing: inherit;
 }
 
-.box {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
+.wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 500px;
+    display: flex;
 }
 
 .display-table {
@@ -30,6 +32,5 @@
     font-size: medium;
     text-align: center;
     vertical-align: inherit;
-    border-bottom: 1px solid burlywood;
     padding: 2px;
 }

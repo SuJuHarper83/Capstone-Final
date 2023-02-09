@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import DisplayEntries from "../../components/DisplayEntries/DisplayEntries";
 import axios from "axios";
-import SearchBar from "../../components/SearchEntries/SearchEntries";
 import JournalEntryForm from "../../components/AddEntry/AddEntry";
+import Navbar from "../../components/NavBar/NavBar";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -60,7 +60,12 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="title-container">
+      <div>
+      {/* <button id="navOpen" onClick={() => openSidebar()}>&#9776; Open</button> */}
+      <Navbar id="sideBar"/>
+      </div>
+      <div className="container"></div>
+      <div>
         <h1>Home Page for {user.username}!</h1>
       </div>
         <section className="entry-modal hidden">

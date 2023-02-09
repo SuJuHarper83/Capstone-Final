@@ -7,9 +7,19 @@ import "./NavBar.css";
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const sideNav = document.querySelector(".sideNav");
+  const main = document.querySelector(".main");
+  const openNav = document.querySelector(".navOpen");
+  const closeNav = document.querySelector(".navClose");
+
+  const closeSidebar = function () {
+    sideNav.style.width = "0";
+    main.marginLeft = "0";
+  }
+
   return (
-    <div className="navBar">
       <ul>
+        <button className="navClose" onClick={() => closeSidebar()}>x</button>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>Home</b>
@@ -29,7 +39,6 @@ const Navbar = () => {
           )}
         </li>
       </ul>
-    </div>
   );
 };
 

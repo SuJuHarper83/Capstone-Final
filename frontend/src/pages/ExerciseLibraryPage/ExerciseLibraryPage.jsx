@@ -50,8 +50,8 @@ const ExerciseLibraryPage = () => {
       `http://127.0.0.1:8000/api/capstone/getExercises/${id}/`,
       { headers: { Authorization: "Bearer " + token } }
     );
-    console.log(response.data);
-    getExercises();
+      console.log(response.data);
+      getExercises();
   }
 
   const openModal = function () {
@@ -77,7 +77,7 @@ const ExerciseLibraryPage = () => {
   return (
     <>
       <div>
-        <ExerciseList entries={exercise} />
+        <ExerciseList exercise={exercise} />
       </div>
       <section className="modal_two hidden">
         <div>
