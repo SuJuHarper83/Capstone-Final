@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
+import "./DisplayEntries.css";
 
 const DisplayEntries = (props) => {
   const [user, token] = useAuth();
@@ -9,7 +10,7 @@ const DisplayEntries = (props) => {
 
   return (
     <>
-      <div>
+      <div className="box">
         <input
           type="text"
           value={search}
@@ -41,6 +42,8 @@ const DisplayEntries = (props) => {
                   <tr key={entry.id}>
                     <td className="entry-display">
                       <Link to={`/${entry.id}`}>{entry.date} </Link>
+                    </td>
+                    <td className="entry-display">
                       <Link to={`/${entry.id}`}>{entry.entry_title}</Link>
                     </td>
                   </tr>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
@@ -9,6 +10,7 @@ const JournalEntryPage = () => {
   const [user, token] = useAuth();
   const [entry, viewEntry] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getEntry();
@@ -41,6 +43,12 @@ const JournalEntryPage = () => {
         <br />
         {/* <img src={require`/media/{entry.image}`} alt="blank" /> */}
       </div>
+      <button onClick={() => navigate("/")}>Home</button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

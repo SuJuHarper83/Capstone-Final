@@ -9,7 +9,7 @@ const JournalEntryForm = (props) => {
     const [input_b, setInputB] = useState("");
     const [input_c, setInputC] = useState("");
     const [mood, setMood] = useState("");
-    const [image, setImage] = useState([]);
+    const [file, setFile] = useState([]);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -20,7 +20,7 @@ const JournalEntryForm = (props) => {
             input_b: input_b,
             input_c: input_c,
             mood: mood,
-            image: image,
+            file: file,
         };
         console.log(newEntry);
         props.addNewEntryProperty(newEntry);
@@ -91,7 +91,7 @@ const JournalEntryForm = (props) => {
                                 id="img"
                                 name="image"
                                 accept="image/*"
-                                onChange={(event) => setImage(event.target.files[0])}
+                                onChange={(event) => setFile(event.target.files[0])}
                             />
                         </p>
                         <p>

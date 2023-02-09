@@ -13,7 +13,9 @@ const ExerciseLibraryPage = () => {
   const [exercise, setExercises] = useState([]);
   const { id } = useParams();
   const modal = document.querySelector(".modal");
+  const modal_two = document.querySelector(".modal_two");
   const overlay = document.querySelector(".overlay");
+  const overlay_two = document.querySelector(".overlay_two");
   const openModalBtn = document.querySelector(".btn-open");
   const closeModalBtn = document.querySelector(".btn-close");
 
@@ -49,6 +51,7 @@ const ExerciseLibraryPage = () => {
       { headers: { Authorization: "Bearer " + token } }
     );
     console.log(response.data);
+    getExercises();
   }
 
   const openModal = function () {
@@ -61,19 +64,29 @@ const ExerciseLibraryPage = () => {
     overlay.classList.add("hidden");
   };
 
+  const openModalTwo = function () {
+    modal_two.classList.remove("hidden");
+    overlay_two.classList.remove("hidden");
+  };
+
+  const closeModalTwo = function () {
+    modal_two.classList.add("hidden");
+    overlay_two.classList.add("hidden");
+  };
+
   return (
     <>
       <div>
         <ExerciseList entries={exercise} />
       </div>
-      <section className="modal2 hidden">
-        <div classname="flex2">
-            <span className="btn-close" onClick={() => closeModal()}>x</span>
-            <ExerciseItem entry={getExercise} />
+      <section className="modal_two hidden">
+        <div>
+            <span className="btn-close" onClick={() => closeModalTwo()}>x</span>
+            <ExerciseItem props={getExercise} />
         </div>
       </section>
-      <div className="overlay2 hidden"></div>
-      <button className="btn-open" onClick={() => openModal()}>
+      <div className="overlay_two hidden"></div>
+      <button className="btn-open" onClick={() => openModalTwo()}>
       </button>
       <section className="modal hidden">
         <div className="flex">

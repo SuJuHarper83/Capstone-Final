@@ -11,7 +11,7 @@ const FlexBox = styled.ul`
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const ExerciseGrid = styled.li`
-  height: 50px;
+  height: 70px;
   width: 150px;
   padding: 1rem;
   display: grid;
@@ -19,8 +19,8 @@ const ExerciseGrid = styled.li`
   content: center;
   box-shadow: 2px 8px 16px -2px rgba(19, 57, 94, 0.486);
   margin: 1rem;
-  border-radius: 30px;
-  font-size: smaller;
+  border-radius: 40px;
+  font-size: xx-small;
 `;
 
 const ExerciseList = (props) => {
@@ -41,7 +41,7 @@ const ExerciseList = (props) => {
         >
           <li key={exercise.id}>{exercise.ex_title}</li></ExerciseGrid>
           </Link>
-        ))}{" "}
+        ))}
       </FlexBox>
     </>
   );
