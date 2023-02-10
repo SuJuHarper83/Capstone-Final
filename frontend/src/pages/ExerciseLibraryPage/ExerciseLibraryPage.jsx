@@ -10,7 +10,7 @@ import "./ExerciseLibraryPage.css";
 const ExerciseLibraryPage = () => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
-  const { id } = useParams();
+  const { exerciseId } = useParams();
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const openModalBtn = document.querySelector(".btn-open");

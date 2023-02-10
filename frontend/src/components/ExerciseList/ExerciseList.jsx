@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
-import ExerciseItem from "../ExerciseItem/ExerciseItem";
+import ExerciseModal from "../ExerciseModal/ExerciseModal/";
 import "./ExerciseList.css";
 
 const FlexBox = styled.ul`
@@ -26,8 +27,28 @@ const ExerciseGrid = styled.li`
 
 const ExerciseList = (props) => {
   const [user, token] = useAuth();
+  const [exercise, setExercise] = useState([]);
+  const { exerciseId } = useParams();
   const itemModal = document.querySelector(".item-modal");
   const itemOverlay = document.querySelector(".item-overlay");
+
+
+  useEffect(() => {
+    getExercise();
+  }, [exerciseId]);
+
+  async function getExercise(newExercise) {
+    let response = await axios.post(
+      `http://127.0.0.1:8000/api/capstone/getExercises/`, newExercise,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    console.log(response.data);
+    setExercise();
+}
 
   const openModal = function() {
     itemModal.classList.remove("hidden");
@@ -54,11 +75,11 @@ const ExerciseList = (props) => {
           <section className="item-modal hidden">
             <div className="flex">
               <span className="modclose" onClick={() => closeModal()}>x</span>
-              <ExerciseItem exercise={exercise} />
+              <ExerciseModal exerciseId={exercise} />
             </div>
           </section>
             <div className="item-overlay hidden"></div>
-            <Link to={`/exercise_library/${exercise.id}`} onClick={() => openModal({exercise})}>
+            <Link to={`/exercise_library/${exercise.id}`} onClick={() => openModal(exercise)}>
               {exercise.ex_title}
             </Link>
           </ExerciseGrid>
