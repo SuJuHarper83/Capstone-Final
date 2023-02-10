@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
-const newExerciseEntry = (props) => {
+const NewExerciseEntry = (props) => {
     const [user, token] = useAuth();
     const [ex_title, setExTitle] = useState("");
     const [input_d, setInputD] = useState("");
@@ -58,4 +58,4 @@ const newExerciseEntry = (props) => {
     );
 };
 
-export default newExerciseEntry
+export default NewExerciseEntry

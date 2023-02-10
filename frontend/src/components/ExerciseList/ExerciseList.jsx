@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
+import ExerciseItem from "../ExerciseItem/ExerciseItem";
 import "./ExerciseList.css";
 
 const FlexBox = styled.ul`
@@ -25,26 +26,44 @@ const ExerciseGrid = styled.li`
 
 const ExerciseList = (props) => {
   const [user, token] = useAuth();
-  const { id } = useParams();
+  const itemModal = document.querySelector(".item-modal");
+  const itemOverlay = document.querySelector(".item-overlay");
+
+  const openModal = function() {
+    itemModal.classList.remove("hidden");
+    itemOverlay.classList.remove("hidden");
+  };
+
+  const closeModal = function() {
+    itemModal.classList.add("hidden");
+    itemOverlay.classList.add("hidden");
+  };
 
   return (
     <>
-      <div>
       <FlexBox>
         {props.exercise.map((exercise) => (
-          <Link to={`/${exercise.id}`}>
-          <ExerciseGrid 
-          style={{
-            backgroundColor: `${
-              colorArray[Math.floor(Math.random() * colorArray.length)]
-            }`,
-          }}
-        >
-          <li key={exercise.id}>{exercise.ex_title}</li></ExerciseGrid>
-          </Link>
+          <ExerciseGrid
+            key={exercise.id}
+            style={{
+              backgroundColor: `${
+                colorArray[Math.floor(Math.random() * colorArray.length)]
+              }`,
+            }}
+          >
+          <section className="item-modal hidden">
+            <div className="flex">
+              <span className="modclose" onClick={() => closeModal()}>x</span>
+              <ExerciseItem exercise={exercise} />
+            </div>
+          </section>
+            <div className="item-overlay hidden"></div>
+            <Link to={`/exercise_library/${exercise.id}`} onClick={() => openModal({exercise})}>
+              {exercise.ex_title}
+            </Link>
+          </ExerciseGrid>
         ))}
       </FlexBox>
-      </div>
     </>
   );
 };

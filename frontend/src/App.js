@@ -51,7 +51,7 @@ function App() {
           }
         />
         <Route
-          path="/exercise_library/:id"
+          path="/exercise_library/:exerciseId"
           element={
             <PrivateRoute>
               <ExerciseItem />
