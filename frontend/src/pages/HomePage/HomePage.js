@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import DisplayEntries from "../../components/DisplayEntries/DisplayEntries";
 import axios from "axios";
 import JournalEntryForm from "../../components/AddEntry/AddEntry";
+import MoodTracker from "../../components/MoodTracker/MoodTracker";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -73,6 +74,10 @@ const HomePage = () => {
         <button className="button-open" onClick={() => openModal()}>
           Add Entry
         </button>
+        <button className="button-open">
+          Check your progress!
+        </button>
+          <MoodTracker entries={entry} />
       <div>
         <DisplayEntries entry={entry} />
       </div>
