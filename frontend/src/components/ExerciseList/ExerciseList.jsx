@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import ExerciseModal from "../ExerciseModal/ExerciseModal/";
+import ExerciseModal from "../ExerciseModal/ExerciseModal";
 import "./ExerciseList.css";
 
 const FlexBox = styled.ul`
@@ -15,7 +15,7 @@ const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const ExerciseGrid = styled.li`
   height: 70px;
-  width: 150px;
+  width: 120px;
   padding: 1rem;
   display: grid;
   column-gap: 1px;
@@ -27,28 +27,27 @@ const ExerciseGrid = styled.li`
 
 const ExerciseList = (props) => {
   const [user, token] = useAuth();
-  const [exercise, setExercise] = useState([]);
+  const [exercise, setExercise] = useState({});
   const { exerciseId } = useParams();
   const itemModal = document.querySelector(".item-modal");
   const itemOverlay = document.querySelector(".item-overlay");
 
-
   useEffect(() => {
-    getExercise();
-  }, [exerciseId]);
-
-  async function getExercise(newExercise) {
-    let response = await axios.post(
-      `http://127.0.0.1:8000/api/capstone/getExercises/`, newExercise,
-      {
+    const getExercise = async () => {
+    let response = await axios.get(
+        `http://127.0.0.1:8000/api/capstone/getExercises/${exerciseId}/`,
+        {
         headers: {
-          Authorization: "Bearer " + token,
+            Authorization: "Bearer " + token,
         },
-      }
+        }
     );
     console.log(response.data);
     setExercise();
-}
+    }
+
+    getExercise();
+}, [exerciseId]);
 
   const openModal = function() {
     itemModal.classList.remove("hidden");
@@ -75,7 +74,7 @@ const ExerciseList = (props) => {
           <section className="item-modal hidden">
             <div className="flex">
               <span className="modclose" onClick={() => closeModal()}>x</span>
-              <ExerciseModal exerciseId={exercise} />
+              <ExerciseModal exercise={exercise} />
             </div>
           </section>
             <div className="item-overlay hidden"></div>

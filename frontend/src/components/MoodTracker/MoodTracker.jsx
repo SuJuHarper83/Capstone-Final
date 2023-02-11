@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Component } from "react";
 import { Chart } from "react-google-charts";
+import "./MoodTracker.css";
 
 const MoodTracker = (props) => {
     
@@ -13,13 +15,12 @@ const MoodTracker = (props) => {
     }, [props.entries])
 
     return ( 
-        <Chart
+        <Chart className="chart"
         chartType="LineChart"
         data={[["Date", "Mood"], ...chartData]}
-        width="600"
-        height="500"
         legendToggle
-        options={{legend: {position: "bottom"}}}
+        options={
+            {legend: {position: "bottom"}}}
         />
      );
 }

@@ -14,8 +14,6 @@ const HomePage = () => {
   const [entry, setEntries] = useState([]);
   const entryModal = document.querySelector(".entry-modal");
   const entryOverlay = document.querySelector(".entry-overlay");
-  const openBtn = document.querySelector(".button-open");
-  const closeBtn = document.querySelector(".button-close");
 
   useEffect(() => {
     getEntries();
@@ -44,6 +42,7 @@ const HomePage = () => {
         },
       }
     );
+    entry.unshift(newEntry);
     console.log(response.data);
     getEntries();
   }

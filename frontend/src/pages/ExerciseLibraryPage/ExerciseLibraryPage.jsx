@@ -10,11 +10,8 @@ import "./ExerciseLibraryPage.css";
 const ExerciseLibraryPage = () => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
-  const { exerciseId } = useParams();
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
-  const openModalBtn = document.querySelector(".btn-open");
-  const closeModalBtn = document.querySelector(".btn-close");
 
   useEffect(() => {
     getExercises();
