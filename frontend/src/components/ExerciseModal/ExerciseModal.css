@@ -6,7 +6,7 @@
   box-sizing: inherit;
 }
 
-.addex-modal-background {
+.ex-modal-background {
     z-index: 1;
     position: fixed;
     top: 0;
@@ -19,13 +19,13 @@
     backdrop-filter: blur(4px);
 }
 
-.addex-modal-container {
+.ex-modal-container {
     z-index: 2;
     display: flex;
     justify-content: center;
-    width: 150;
+    width: 600px;
     padding: 1.5rem;
-    height: 300;
+    height: 600px;
     position: absolute;
     background-color: white;
     border: 2px solid black;
@@ -35,7 +35,7 @@
     transform: translate(-50%, -10%);
 }
 
-.addex-modal-form {
+.ex-modal-body {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,7 +47,7 @@ button:hover {
     background-color: steelblue;
 }
 
-.submit {
+.btn-close {
     transform: translate(10px, -20px);
     padding: 1rem;
     background: white;
@@ -55,7 +55,6 @@ button:hover {
     align-items: right;
 }
 
-.submit:hover {
+.btn-close:hover {
     cursor: pointer;
 }
-

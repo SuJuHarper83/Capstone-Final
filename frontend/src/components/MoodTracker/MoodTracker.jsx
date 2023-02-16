@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import "./MoodTracker.css";
 
-const MoodTracker = ({props, setOpen}) => {
+const MoodTracker = ({entries, setCollapsible}) => {
     
     const [chartData, setChartData] = useState([]);
 
     useEffect (() => {
-        let chartData = props.entries.map(entry => {
+        let chartData = entries.map(entry => {
             return [entry.date, entry.mood];
         });
         setChartData(chartData);
-    }, [props.entries])
+    }, [entries])
 
     return ( 
         <>
@@ -22,7 +22,7 @@ const MoodTracker = ({props, setOpen}) => {
         options={
             {legend: {position: "bottom"}}}
         />
-        <button onClick={() => setOpen(false)}>Close</button>
+        <button onClick={() => setCollapsible(false)}>Close</button>
         </>
      );
 }

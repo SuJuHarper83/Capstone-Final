@@ -68,7 +68,3 @@ button:hover {
     background: rgba(130, 130, 240, 0.5);
     backdrop-filter: blur(4px);
 }
-
-.hidden {
-    display: none;
-}

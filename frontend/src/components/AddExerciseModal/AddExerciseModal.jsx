@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import "./AddExerciseModal.css"
 // import useAuth from "../../hooks/useAuth";
 
-const NewExerciseEntry = ({props, setModalOpen}) => {
+const NewExerciseEntry = ({addNewExerciseProperty, setModalOpen}) => {
     // const [user, token] = useAuth();
     const [ex_title, setExTitle] = useState("");
     const [input_d, setInputD] = useState("");
@@ -15,18 +16,19 @@ const NewExerciseEntry = ({props, setModalOpen}) => {
                 input_e: input_e,
             };
             console.log(newExercise);
-            props.addNewExerciseProperty(newExercise)
+            addNewExerciseProperty(newExercise)
     }
 
     return (
-        <div className="ex-modal-background">
-        <div className="ex-modal-container">
-            <form onSubmit={handleSubmit} className="ex-modal-body">
+        <div className="addex-modal-background">
+        <div className="addex-modal-container">
+            <div className="addex-modal-form">
+            <form onSubmit={handleSubmit}>
                 <p>
                     <label>Title </label>
                     <input
                         type="text"
-                        className="ex-form-control"
+                        className="addex-form-control"
                         value={ex_title}
                         onChange={(event) => setExTitle(event.target.value)}
                     />
@@ -35,7 +37,7 @@ const NewExerciseEntry = ({props, setModalOpen}) => {
                     <label>Exercise </label>
                     <input
                         type="text"
-                        className="ex-form-control"
+                        className="addex-form-control"
                         value={input_d}
                         onChange={(event) => setInputD(event.target.value)}
                     />
@@ -44,17 +46,18 @@ const NewExerciseEntry = ({props, setModalOpen}) => {
                     <label>Examples </label>
                     <input
                         type="text"
-                        className="ex-form-control"
+                        className="addex-form-control"
                         value={input_e}
                         onChange={(event) => setInputE(event.target.value)}
                     />
                 </p>
-                <p>
+                <div className="addex-modal-footer">
                 <button className="button" type="submit" onClick={() => setModalOpen(false)}>
                     Submit
                 </button>
-                </p>
+                </div>
             </form>
+            </div>
         </div>
         </div>
     );

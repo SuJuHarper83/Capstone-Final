@@ -13,8 +13,7 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [entry, setEntries] = useState([]);
   const [open, setOpen] = useState(false);
-  const entryModal = document.querySelector(".entry-modal");
-  const entryOverlay = document.querySelector(".entry-overlay");
+  const [collapsible, setCollapsible] = useState(false);
 
   useEffect(() => {
     getEntries();
@@ -48,34 +47,20 @@ const HomePage = () => {
     getEntries();
   }
 
-  const openModal = function () {
-    entryModal.classList.remove("hidden");
-    entryOverlay.classList.remove("hidden");
-  };
-
-  const closeModal = function () {
-    entryModal.classList.add("hidden");
-    entryOverlay.classList.add("hidden");
-  };
-
   return (
     <>
       <div className="container"></div>
-      <div>
-        <h1>Home Page for {user.username}!</h1>
-      </div>
-        <section className="entry-modal hidden">
-          <div className="flex">
-            <span className="button-close" onClick={() => closeModal()}>x</span>
-            <JournalEntryForm addNewEntryProperty={addEntry} />
-          </div>
-        </section>
-        <div className="entry-overlay hidden"></div>
-        <button className="button-open" onClick={() => openModal()}>
-          Add Entry
-        </button>
-        <button onClick={() => setOpen(true)}>Check your progress!</button>
-          {open && <MoodTracker entries={entry} />}
+        <div>
+          <h1>Home Page for {user.username}!</h1>
+        </div>
+        <div>
+          <button onClick={() => setOpen(true)}>Add Entry</button>
+          {open && <JournalEntryForm addNewEntryProperty={addEntry} setOpen={setOpen} />}
+        </div>
+        <div>
+        <button onClick={() => setCollapsible(true)}>Check your progress!</button>
+          {collapsible && <MoodTracker entries={entry} setCollapsible={setCollapsible}/>}
+        </div>
       <div>
         <DisplayEntries entry={entry} />
       </div>

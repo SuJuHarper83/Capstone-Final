@@ -29,38 +29,41 @@ const ExerciseList = (props) => {
   const [user, token] = useAuth();
   const [exercise, setExercise] = useState({});
   const { exerciseId } = useParams();
-  const itemModal = document.querySelector(".item-modal");
-  const itemOverlay = document.querySelector(".item-overlay");
+  const [exModalOpen, setExModalOpen] = useState(false);
 
-  useEffect(() => {
-    const getExercise = async () => {
-    let response = await axios.get(
-        `http://127.0.0.1:8000/api/capstone/getExercises/${exerciseId}/`,
-        {
-        headers: {
-            Authorization: "Bearer " + token,
-        },
-        }
-    );
-    console.log(response.data);
-    setExercise();
-    }
+  const getExercise = async () => {
+  let response = await axios.get(
+      `http://127.0.0.1:8000/api/capstone/getExercises/${exerciseId}/`,
+      {
+      headers: {
+          Authorization: "Bearer " + token,
+      },
+      }
+  );
+  console.log(response.data);
+  setExercise(response.data);
+  }
 
-    getExercise();
-}, [exerciseId]);
+//   useEffect(() => {
+//     const getExercise = async () => {
+//     let response = await axios.get(
+//         `http://127.0.0.1:8000/api/capstone/getExercises/${exerciseId}/`,
+//         {
+//         headers: {
+//             Authorization: "Bearer " + token,
+//         },
+//         }
+//     );
+//     console.log(response.data);
+//     setExercise();
+//     }
 
-  const openModal = function() {
-    itemModal.classList.remove("hidden");
-    itemOverlay.classList.remove("hidden");
-  };
-
-  const closeModal = function() {
-    itemModal.classList.add("hidden");
-    itemOverlay.classList.add("hidden");
-  };
+//     getExercise();
+// }, [exerciseId]);
 
   return (
     <>
+    {/* <button onClick={()=>getExercise()}>Click For Ex</button> */}
       <FlexBox>
         {props.exercise.map((exercise) => (
           <ExerciseGrid
@@ -71,15 +74,9 @@ const ExerciseList = (props) => {
               }`,
             }}
           >
-          <section className="item-modal hidden">
-            <div className="flex">
-              <span className="modclose" onClick={() => closeModal()}>x</span>
-              <ExerciseModal exercise={exercise} />
-              {console.log(exerciseId)}
-            </div>
-          </section>
-            <div className="item-overlay hidden"></div>
-            <Link to={`/exercise_library/${exercise.id}`} onClick={() => openModal()}>
+              {exModalOpen && <ExerciseModal exercise={exercise} setExModalOpen={setExModalOpen}/>}
+              {/* {console.log(exerciseId)} */}
+            <Link to={`/exercise_library/${exerciseId}`} onClick={() => setExModalOpen(true)}>
               {exercise.ex_title}
             </Link>
           </ExerciseGrid>
