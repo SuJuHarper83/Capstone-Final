@@ -1,14 +1,14 @@
 from django.db import models
 from authentication.models import User
 from django.utils import timezone
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
 
 class Video(models.Model):
-    video = models.CharField(max_length=255)
-    video_title = models.CharField(max_length=255)
+    video = EmbedVideoField()
+    title = models.CharField(max_length=255)
     description = models.CharField(max_length=300)
-    thumbnail = models.ImageField(upload_to='post_images', blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
@@ -27,6 +27,9 @@ class Entry(models.Model):
     mood = models.IntegerField()
     image = models.ImageField(upload_to='post_images', blank=True, verbose_name="Image")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ["-date"]
 
 
 class Exercise(models.Model):

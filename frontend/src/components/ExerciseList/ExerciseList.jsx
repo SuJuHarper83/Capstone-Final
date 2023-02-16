@@ -47,7 +47,7 @@ const ExerciseList = (props) => {
     }
 
     getExercise();
-}, [exerciseId]);
+}, []);
 
   const openModal = function() {
     itemModal.classList.remove("hidden");
@@ -75,6 +75,7 @@ const ExerciseList = (props) => {
             <div className="flex">
               <span className="modclose" onClick={() => closeModal()}>x</span>
               <ExerciseModal exercise={exercise} />
+              {console.log(exerciseId)}
             </div>
           </section>
             <div className="item-overlay hidden"></div>

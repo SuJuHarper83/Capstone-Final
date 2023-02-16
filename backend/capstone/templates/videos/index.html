@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+
+{% block content %}
+    <h1 class="video-head">Videos</h1>
+
+    {% if videos %}
+    {% for item in videos %}
+
+        {% video item.video %}
+            <iframe width ="{{ 420 }}", height = "{{ 240 }}", src=""{{ item.video }}
+            frameborder = "0"></iframe>
+        {{ item.title }}
+        {{ item.description }}
+
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+

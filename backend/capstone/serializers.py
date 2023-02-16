@@ -4,7 +4,7 @@ from .models import Video, Entry, Exercise, Playlist
 class VideoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
-        fields = ['id', 'video', 'video_title', 'description', 'thumbnail']
+        fields = ['id', 'video', 'title', 'description']
         depth = 1
 
 

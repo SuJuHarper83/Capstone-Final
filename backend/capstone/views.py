@@ -49,6 +49,7 @@ def video_library(request):
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'GET':
         video = Video.objects.all()
+        context = {'video': video}
     
     serializer = VideoSerializer(video, many=True)
 

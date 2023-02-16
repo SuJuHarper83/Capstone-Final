@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'embed_video',
     'capstone',
     'authentication.apps.AuthenticationConfig',
     'cars.apps.CarsConfig'  # This app is for example use only
@@ -64,7 +65,9 @@ ROOT_URLCONF = 'drf_jwt_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR.joinpath('templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -159,6 +162,8 @@ try:
     from drf_jwt_backend.local_settings import *
 except ImportError:
     pass
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'

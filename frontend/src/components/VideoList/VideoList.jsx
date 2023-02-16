@@ -13,7 +13,6 @@ const VideoList = (props) => {
   const [videoId, setVideoId] = useState();
 
   return (
-    // modal
     <>
       <FlexBox>
         {props.parentEntries.map((video) => (
