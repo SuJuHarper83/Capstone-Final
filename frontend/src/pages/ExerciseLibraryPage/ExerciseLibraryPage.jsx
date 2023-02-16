@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ExerciseList from "../../components/ExerciseList/ExerciseList";
-import NewExerciseEntry from "../../components/AddExercise/AddExercise";
+import NewExerciseEntry from "../../components/AddExerciseModal/AddExerciseModal";
 import "./ExerciseLibraryPage.css";
 
 

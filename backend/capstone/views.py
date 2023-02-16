@@ -41,6 +41,16 @@ def exercise_by_id(request, pk):
         serializer = ExerciseSerializer(exercise);
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@api_view (['GET'])
+@permission_classes ([IsAuthenticated])
+def video_by_id(request, pk):
+    print(
+        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+    video = get_object_or_404(Video, pk=pk)
+    if request.method == 'GET': #200 OK
+        serializer = VideoSerializer(video);
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 @api_view (['GET'])
 @permission_classes ([IsAuthenticated])

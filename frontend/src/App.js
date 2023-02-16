@@ -57,6 +57,14 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/video_library/:videoId"
+          element={
+            <PrivateRoute>
+              <ExerciseLibraryPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
