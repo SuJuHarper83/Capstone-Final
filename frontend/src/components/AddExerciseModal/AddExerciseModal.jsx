@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import useAuth from "../../hooks/useAuth";
 
-const NewExerciseEntry = (props) => {
+const NewExerciseEntry = ({props, setModalOpen}) => {
     // const [user, token] = useAuth();
     const [ex_title, setExTitle] = useState("");
     const [input_d, setInputD] = useState("");
@@ -19,8 +19,9 @@ const NewExerciseEntry = (props) => {
     }
 
     return (
-        <div className="ex-entry-container">
-            <form onSubmit={handleSubmit} className="add-exercise-table">
+        <div className="ex-modal-background">
+        <div className="ex-modal-container">
+            <form onSubmit={handleSubmit} className="ex-modal-body">
                 <p>
                     <label>Title </label>
                     <input
@@ -49,11 +50,12 @@ const NewExerciseEntry = (props) => {
                     />
                 </p>
                 <p>
-                <button className="button" type="submit">
+                <button className="button" type="submit" onClick={() => setModalOpen(false)}>
                     Submit
                 </button>
                 </p>
             </form>
+        </div>
         </div>
     );
 };

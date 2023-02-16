@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import ExerciseList from "../../components/ExerciseList/ExerciseList";
 import NewExerciseEntry from "../../components/AddExerciseModal/AddExerciseModal";
 import "./ExerciseLibraryPage.css";
 
 
-const ExerciseLibraryPage = () => {
+const ExerciseLibraryPage = (props) => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
-  const modal = document.querySelector(".modal");
-  const overlay = document.querySelector(".overlay");
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     getExercises();
@@ -39,33 +37,17 @@ const ExerciseLibraryPage = () => {
       getExercises();
   }
 
-  const openModal = function () {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  };
-
-  const closeModal = function () {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-  };
-
   return (
     <>
       <ExerciseList exercise={exercise} />
       <div>
-        <section className="modal hidden">
-          <div className="flex">
-            <span className="btn-close" onClick={() => closeModal()}>x</span>
-            <NewExerciseEntry addNewExerciseProperty={addExercise} />
-          </div>
-        </section>
-        <div className="overlay hidden"></div>
-        <button className="btn-open" onClick={() => openModal()}>
-          Add Exercise
-        </button>
+        <button onClick={() => setModalOpen(true)}>Add Exercise</button>
+        {modalOpen && <NewExerciseEntry addNewExerciseProperty = {addExercise} setModalOpen={setModalOpen} />} 
       </div>
     </>
   );
 };
 
 export default ExerciseLibraryPage;
+
+// modal used without bootstrap

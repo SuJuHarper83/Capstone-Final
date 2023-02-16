@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import VideoList from "../../components/VideoList/VideoList";
+import { DATA } from "../../VideoData";
 
 const VideoLibraryPage = () => {
 
     const [user, token] = useAuth();
-    const [video, setVideos] = useState({});
+    const [video, setVideos] = useState(DATA);
 
     return (
         <>
         <div>
-            <VideoList parentEntries={video} />
+            <VideoList data={DATA} />
         </div>
         </>
     )

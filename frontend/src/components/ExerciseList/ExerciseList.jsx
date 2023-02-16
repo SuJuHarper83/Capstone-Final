@@ -47,7 +47,7 @@ const ExerciseList = (props) => {
     }
 
     getExercise();
-}, []);
+}, [exerciseId]);
 
   const openModal = function() {
     itemModal.classList.remove("hidden");
@@ -79,7 +79,7 @@ const ExerciseList = (props) => {
             </div>
           </section>
             <div className="item-overlay hidden"></div>
-            <Link to={`/exercise_library/${exercise.id}`} onClick={() => openModal(exercise)}>
+            <Link to={`/exercise_library/${exercise.id}`} onClick={() => openModal()}>
               {exercise.ex_title}
             </Link>
           </ExerciseGrid>

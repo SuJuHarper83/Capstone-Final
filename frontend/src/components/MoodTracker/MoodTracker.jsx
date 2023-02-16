@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Component } from "react";
 import { Chart } from "react-google-charts";
 import "./MoodTracker.css";
 
-const MoodTracker = (props) => {
+const MoodTracker = ({props, setOpen}) => {
     
     const [chartData, setChartData] = useState([]);
 
@@ -15,6 +14,7 @@ const MoodTracker = (props) => {
     }, [props.entries])
 
     return ( 
+        <>
         <Chart className="chart"
         chartType="LineChart"
         data={[["Date", "Mood"], ...chartData]}
@@ -22,6 +22,8 @@ const MoodTracker = (props) => {
         options={
             {legend: {position: "bottom"}}}
         />
+        <button onClick={() => setOpen(false)}>Close</button>
+        </>
      );
 }
  

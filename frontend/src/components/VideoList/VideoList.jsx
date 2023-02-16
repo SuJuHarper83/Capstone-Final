@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
+import { DATA } from "../../VideoData";
+import { ReactPropTypes } from "react";
 
 const FlexBox = styled.ul`
   display: flex;
@@ -12,8 +13,8 @@ const FlexBox = styled.ul`
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const VideoDisplay = styled.li`
-  height: 70px;
-  width: 120px;
+  height: 270px;
+  width: 350px;
   padding: 1rem;
   display: grid;
   column-gap: 1px;
@@ -23,32 +24,32 @@ const VideoDisplay = styled.li`
   border-radius: 40px;
 `;
 
-const VideoList = (props) => {
+const VideoList = ({data}) => {
   const [user, token] = useAuth();
-  const [video, setVideo] = useState({});
+  const [video, setVideo] = useState({DATA});
   const { videoId } = useParams();
 
-  useEffect(() => {
-    const getVideo = async () => {
-    let response = await axios.get(
-        `http://127.0.0.1:8000/api/capstone/getVideos/${videoId}/`,
-        {
-        headers: {
-            Authorization: "Bearer " + token,
-        },
-        }
-    );
-    console.log(response.data);
-    setVideo();
-    }
+//   useEffect(() => {
+//     const getVideo = async () => {
+//     let response = await axios.get(
+//         `http://127.0.0.1:8000/api/capstone/getVideos/${videoId}/`,
+//         {
+//         headers: {
+//             Authorization: "Bearer " + token,
+//         },
+//         }
+//     );
+//     console.log(response.data);
+//     setVideo();
+//   }
 
-    getVideo();
-}, [videoId]);
+//     getVideo();
+// }, [videoId]);
 
   return (
     <>
       <FlexBox>
-        {props.video.map((video) => (
+        {data.map((video) => (
           <VideoDisplay key={video.id}
             style={{
               backgroundColor: `${
@@ -56,9 +57,20 @@ const VideoList = (props) => {
               }`,
             }}
           >
-            <br />    
-            {video.title}
-          </VideoDisplay> //data disappears afte VideoDisplay replaces <li>
+            <div className="video-responsive">
+              <iframe
+                width = "320"
+                height = "240"
+                src={`https://www.youtube.com/embed/${video.video}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                >
+              <br /> 
+              {video.title}
+              </iframe>
+            </div>
+          </VideoDisplay>
         ))}
       </FlexBox>
     </>

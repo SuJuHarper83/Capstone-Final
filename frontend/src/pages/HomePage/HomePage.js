@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import DisplayEntries from "../../components/DisplayEntries/DisplayEntries";
 import axios from "axios";
-import JournalEntryForm from "../../components/AddEntry/AddEntry";
+import JournalEntryForm from "../../components/AddEntryModal/AddEntryModal";
 import MoodTracker from "../../components/MoodTracker/MoodTracker";
 import "./HomePage.css";
 
@@ -12,6 +12,7 @@ const HomePage = () => {
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   const [user, token] = useAuth();
   const [entry, setEntries] = useState([]);
+  const [open, setOpen] = useState(false);
   const entryModal = document.querySelector(".entry-modal");
   const entryOverlay = document.querySelector(".entry-overlay");
 
@@ -73,10 +74,8 @@ const HomePage = () => {
         <button className="button-open" onClick={() => openModal()}>
           Add Entry
         </button>
-        <button className="button-open">
-          Check your progress!
-        </button>
-          <MoodTracker entries={entry} />
+        <button onClick={() => setOpen(true)}>Check your progress!</button>
+          {open && <MoodTracker entries={entry} />}
       <div>
         <DisplayEntries entry={entry} />
       </div>
