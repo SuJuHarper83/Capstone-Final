@@ -27,9 +27,6 @@ const JournalEntryForm = ({addNewEntryProperty, setOpen}) => {
         addNewEntryProperty(form_data);
     }
 
-    // function setOpen(){
-    //     setTimeout("window.close()", 1000)
-    // }
             return (
                 <div className="entry-modal-background">
                     <div className="entry-modal-container">
@@ -101,7 +98,7 @@ const JournalEntryForm = ({addNewEntryProperty, setOpen}) => {
                                 />
                             </p>
                             <div className="entry-modal-footer">
-                            <button className="button" type="submit" onClick={() => setOpen(false)}>
+                            <button className="button" type="submit">
                                 Submit
                             </ button>
                             </div>

@@ -35,6 +35,7 @@ const ExerciseLibraryPage = () => {
     );
     console.log(response.data);
     getExercises(response.data);
+    setModalOpen();
   };
 
   return (

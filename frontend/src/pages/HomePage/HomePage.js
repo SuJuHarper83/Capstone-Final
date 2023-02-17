@@ -45,10 +45,12 @@ const HomePage = () => {
     entry.unshift(newEntry);
     console.log(response.data);
     getEntries();
+    setOpen();
   }
 
   return (
     <>
+    <div className="main">
       <div className="container"></div>
         <div>
           <h1>Home Page for {user.username}!</h1>
@@ -64,6 +66,7 @@ const HomePage = () => {
       <div>
         <DisplayEntries entry={entry} />
       </div>
+    </div>
     </>
   );
 };

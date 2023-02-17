@@ -52,7 +52,7 @@ const NewExerciseEntry = ({addNewExerciseProperty, setModalOpen}) => {
                     />
                 </p>
                 <div className="addex-modal-footer">
-                <button className="button" type="submit" onClick={() => setModalOpen(false)}>
+                <button className="button" type="submit">
                     Submit
                 </button>
                 </div>

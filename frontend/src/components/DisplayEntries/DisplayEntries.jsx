@@ -28,13 +28,13 @@ const DisplayEntries = (props) => {
             {props.entry
               .filter((entry) => {
                 if (
-                  entry.date.toLowerCase().includes(search.toLowerCase()) ||
-                  entry.entry_title
+                  (entry.date || "").toLowerCase().includes(search.toLowerCase()) ||
+                  (entry.entry_title || "")
                     .toLowerCase()
                     .includes(search.toLowerCase()) ||
-                  entry.input_a.toLowerCase().includes(search.toLowerCase()) ||
-                  entry.input_b.toLowerCase().includes(search.toLowerCase()) ||
-                  entry.input_c.toLowerCase().includes(search.toLowerCase())
+                  (entry.input_a || "").toLowerCase().includes(search.toLowerCase()) ||
+                  (entry.input_b || "").toLowerCase().includes(search.toLowerCase()) ||
+                  (entry.input_c || "").toLowerCase().includes(search.toLowerCase())
                 ) 
                   return entry;
               })

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
-import { useParams } from "react-router-dom";
 import { DATA } from "../../VideoData";
 import { ReactPropTypes } from "react";
 
@@ -13,8 +12,8 @@ const FlexBox = styled.ul`
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const VideoDisplay = styled.li`
-  height: 270px;
-  width: 350px;
+  height: 420px;
+  width: 670px;
   padding: 1rem;
   display: grid;
   column-gap: 1px;
@@ -27,7 +26,6 @@ const VideoDisplay = styled.li`
 const VideoList = ({data}) => {
   const [user, token] = useAuth();
   const [video, setVideo] = useState({DATA});
-  const { videoId } = useParams();
 
 //   useEffect(() => {
 //     const getVideo = async () => {
@@ -50,24 +48,23 @@ const VideoList = ({data}) => {
     <>
       <FlexBox>
         {data.map((video) => (
-          <VideoDisplay key={video.id}
+          <VideoDisplay key={data.id}
             style={{
               backgroundColor: `${
                 colorArray[Math.floor(Math.random() * colorArray.length)]
               }`,
             }}
           >
+            {console.log(video.id)}
             <div className="video-responsive">
               <iframe
-                width = "320"
-                height = "240"
+                width = "640"
+                height = "385"
                 src={`https://www.youtube.com/embed/${video.video}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                >
-              <br /> 
-              {video.title}
+              >
               </iframe>
             </div>
           </VideoDisplay>
