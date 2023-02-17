@@ -38,6 +38,7 @@ const ExerciseList = (props) => {
   const getExercise = async () => {
   let response = await axios.get(
       `http://127.0.0.1:8000/api/capstone/getExercises/${exerciseId}/`,
+      exercise,
       {
       headers: {
           Authorization: "Bearer " + token,
@@ -60,7 +61,7 @@ const ExerciseList = (props) => {
               }`,
             }}
           >
-              {exModalOpen && <ExerciseModal exercise={getExercise} setExModalOpen={setExModalOpen}/>}
+              {exModalOpen && <ExerciseModal exercise={exercise} setExModalOpen={setExModalOpen}/>}
               {/* {console.log(exerciseId)} */}
             <Link to={`/exercise_library/${exerciseId}`} onClick={() => setExModalOpen(true)}>
               {exercise.ex_title}
@@ -74,19 +75,3 @@ const ExerciseList = (props) => {
 
 export default ExerciseList;
 
-//   useEffect(() => {
-//     const getExercise = async () => {
-//     let response = await axios.get(
-//         `http://127.0.0.1:8000/api/capstone/getExercises/${exerciseId}/`,
-//         {
-//         headers: {
-//             Authorization: "Bearer " + token,
-//         },
-//         }
-//     );
-//     console.log(response.data);
-//     setExercise();
-//     }
-
-//     getExercise();
-// }, [exerciseId]);

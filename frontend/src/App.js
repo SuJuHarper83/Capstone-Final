@@ -1,6 +1,6 @@
 // General Imports
 import React from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 
@@ -15,15 +15,10 @@ import JournalEntryPage from "./pages/JournalEntryPage/JournalEntryPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import ExerciseList from "./components/ExerciseList/ExerciseList";
+import ExerciseModal from "./components/ExerciseModal/ExerciseModal";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-
-// const ExerciseList = (props) => {
-//   let { exerciseId } = useParams();
-//   return <div>{exerciseId}</div>;
-// };
 
 function App() {
   const [showNavBar, setShowNavBar] = useState(false);
@@ -32,7 +27,6 @@ function App() {
     <div className="main">
       <button onClick={() => setShowNavBar(true)}>Menu</button>
       {showNavBar && <Navbar setShowNavBar={setShowNavBar} />}
-      <ExerciseLibraryPage />
       <Routes>
         <Route
           exact
@@ -61,14 +55,6 @@ function App() {
         />
         <Route
           path="/video_library"
-          element={
-            <PrivateRoute>
-              <VideoLibraryPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/video_library/:videoId"
           element={
             <PrivateRoute>
               <VideoLibraryPage />

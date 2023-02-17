@@ -1,9 +1,7 @@
 import React from "react";
-import useAuth from "../../hooks/useAuth";
 import "./ExerciseModal.css";
 
 const ExerciseModal = ({exercise, setExModalOpen}) => {
-    const [user, token] = useAuth();
 
     return (
         <>

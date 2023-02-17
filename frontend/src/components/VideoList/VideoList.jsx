@@ -27,23 +27,6 @@ const VideoList = ({data}) => {
   const [user, token] = useAuth();
   const [video, setVideo] = useState({DATA});
 
-//   useEffect(() => {
-//     const getVideo = async () => {
-//     let response = await axios.get(
-//         `http://127.0.0.1:8000/api/capstone/getVideos/${videoId}/`,
-//         {
-//         headers: {
-//             Authorization: "Bearer " + token,
-//         },
-//         }
-//     );
-//     console.log(response.data);
-//     setVideo();
-//   }
-
-//     getVideo();
-// }, [videoId]);
-
   return (
     <>
       <FlexBox>
@@ -57,7 +40,7 @@ const VideoList = ({data}) => {
           >
             {console.log(video.id)}
             <div className="video-responsive">
-              <iframe
+              <iframe className="video-player"
                 width = "640"
                 height = "385"
                 src={`https://www.youtube.com/embed/${video.video}`}

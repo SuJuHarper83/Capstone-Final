@@ -9,7 +9,6 @@ const Navbar = ({setShowNavBar}) => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-
   return (
     <div className="navBar-background">
     <div className="navBar">
@@ -19,6 +18,8 @@ const Navbar = ({setShowNavBar}) => {
       timeout={400}
       className="menu-transition"
       unmountOnExit
+      onEnter={() => setShowNavBar(true)}
+      onExited={() => setShowNavBar(false)}
       >
     <ul>
       <li className="brand">
