@@ -12,7 +12,7 @@ const Navbar = ({setShowNavBar}) => {
   return (
     <div className="navBar-background">
     <div className="navBar">
-      <button onClick={() => setShowNavBar(false)}>Close Menu</button>
+      <button onClick={() => setShowNavBar(false)}>Close</button>
       <CSSTransition
       in ={setShowNavBar}
       timeout={400}
@@ -23,7 +23,7 @@ const Navbar = ({setShowNavBar}) => {
       >
     <ul>
       <br />
-      <li>
+     <li className="brand">
         <button onClick={() => navigate("/")}>
           Home
         </button>

@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+@media screen and (max-width: 600px) {
+    iframe {
+        width: 480px;
+        height: 270px;
+    }
+}
+
+

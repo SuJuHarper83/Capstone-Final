@@ -48,8 +48,8 @@ const JournalEntryPage = () => {
           <br />
           <img src={`http://127.0.0.1:8000${entry.image}`} alt=""/>
         </div>
-      <button onClick={() => navigate(-1)}>Go back</button>
-      <button onClick={() => navigate("/")}>Home</button>
+      <button className="btn1" onClick={() => navigate(-1)}>Go back</button>  
+      <button className="btn2" onClick={() => navigate("/")}>Home</button>
       <br />
       <br />
       <br />

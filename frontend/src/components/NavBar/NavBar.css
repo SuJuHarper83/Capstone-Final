@@ -29,7 +29,7 @@ li {
   height: 100%;
   top: 0;
   left: 0;
-  width: 12rem;
+  width: 10rem;
   z-index: 2;
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
@@ -55,19 +55,35 @@ li {
 }
 
 .navBar button {
+  border: none;
   background: transparent;
-  border: 2px solid white;
   color: white;
-  padding: 0.4rem 0.5rem;
+  font-weight: bold;
 }
 
 .navBar button:hover {
-  background: white;
-  color: steelblue;
+  /* background: white;
+  color: steelblue; */
   cursor: pointer;
 }
 
 .brand {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .navBar {
+    margin-bottom: 2rem;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
 }

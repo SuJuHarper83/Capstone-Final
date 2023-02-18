@@ -15,7 +15,6 @@ import JournalEntryPage from "./pages/JournalEntryPage/JournalEntryPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import ExerciseModal from "./components/ExerciseModal/ExerciseModal";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -25,7 +24,7 @@ function App() {
 
   return (
     <div className="main">
-      <button onClick={() => setShowNavBar(true)}>Menu</button>
+      <button className="navButton" onClick={() => setShowNavBar(true)}>Menu</button>
       {showNavBar && <Navbar setShowNavBar={setShowNavBar} />}
       <Routes>
         <Route

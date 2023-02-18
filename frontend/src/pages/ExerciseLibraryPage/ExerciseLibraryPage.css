@@ -37,3 +37,9 @@ h4 {
     color: white;
     background-color: steelblue;
   }
+
+@media screen and (max-width: 600px) {
+    .exercise-body {
+        background-color: rgb(125, 125, 148);
+    }
+  }

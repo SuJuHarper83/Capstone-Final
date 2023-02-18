@@ -10,7 +10,7 @@
 
 html {
   box-sizing: border-box;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -35,6 +35,26 @@ button {
 /* button border steel blue */
 
 button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: steelblue;
+}
+
+.navButton button {
+  background-color: transparent;
+  border: none;
+  border-radius: 30px;
+  color: steelblue;
+  font-size: 1rem;
+  font-family: inherit;
+  max-width: 100px;
+  padding: 0.5rem 0.5rem;
+  margin-left: 20px;
+}
+
+/* button border steel blue */
+
+.navButton button:hover {
   cursor: pointer;
   color: white;
   background-color: steelblue;

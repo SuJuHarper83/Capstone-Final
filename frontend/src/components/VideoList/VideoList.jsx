@@ -3,6 +3,7 @@ import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
 import { DATA } from "../../VideoData";
 import { ReactPropTypes } from "react";
+import "./VideoList.css"
 
 const FlexBox = styled.ul`
   display: flex;
@@ -21,6 +22,10 @@ const VideoDisplay = styled.li`
   box-shadow: 2px 8px 16px -2px rgba(19, 57, 94, 0.486);
   margin: 1rem;
   border-radius: 40px;
+  @media (max-width: 600px) {
+    height: 300px;
+    width: 510px;
+  }
 `;
 
 const VideoList = ({data}) => {

@@ -25,3 +25,31 @@ h1 {
   background-attachment: fixed;
   background-size: 1000px 800px;
 }
+
+.btn1 {
+  margin-left: 20px;
+}
+
+.btn2 {
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .entry-body {
+    background-image: none;
+    background-color: rgb(150, 190, 174);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .entry-box {
+    background-color: rgb(190, 179, 150);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    width: 50%;
+    height: 50%;
+  }
+}
