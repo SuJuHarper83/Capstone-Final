@@ -51,10 +51,10 @@ const NewExerciseEntry = ({addNewExerciseProperty, setModalOpen}) => {
                         onChange={(event) => setInputE(event.target.value)}
                     />
                 </p>
+                <br />
                 <div className="addex-modal-footer">
-                <button className="button" type="submit">
-                    Submit
-                </button>
+                <button className="button" type="submit">Submit</button>
+                <button className="button" onClick={() => setModalOpen(false)}>Cancel</button>
                 </div>
             </form>
             </div>

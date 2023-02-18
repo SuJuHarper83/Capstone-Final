@@ -10,7 +10,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -23,13 +23,16 @@ p {
 
 button {
   background-color: transparent;
-  border: 2px solid steelblue;
+  border: 2px solid black; 
+  border-radius: 30px;
   color: steelblue;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
   padding: 0.5rem 0.5rem;
 }
+
+/* button border steel blue */
 
 button:hover {
   cursor: pointer;

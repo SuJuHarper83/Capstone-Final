@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import ExerciseList from "../../components/ExerciseList/ExerciseList";
@@ -9,6 +10,7 @@ const ExerciseLibraryPage = () => {
   const [user, token] = useAuth();
   const [exercise, setExercises] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getExercises();
@@ -40,16 +42,28 @@ const ExerciseLibraryPage = () => {
 
   return (
     <>
-      <ExerciseList exercise={exercise} />
-      <div>
-        <button onClick={() => setModalOpen(true)}>Add Exercise</button>
-        {modalOpen && (
-          <NewExerciseEntry
-            addNewExerciseProperty={addExercise}
-            setModalOpen={setModalOpen}
-          />
-        )}
-      </div>
+      <body className="exercise-body">
+        <div className="exercise-page-title">
+          <h1>Exercise Library</h1>
+          <h4>
+            ...True enjoyment comes from activity of the mind and exercise of
+            the body; the two are ever united...
+          </h4>
+        </div>
+        <div className="exercise-box">
+          <div className="exercise-button">
+            <button onClick={() => setModalOpen(true)}>Add Exercise</button>
+            {modalOpen && (
+              <NewExerciseEntry
+                addNewExerciseProperty={addExercise}
+                setModalOpen={setModalOpen}
+              />
+            )}
+          </div>
+          <ExerciseList exercise={exercise} />
+        </div>
+        <button onClick={() => navigate("/")}>Home</button>
+      </body>
     </>
   );
 };

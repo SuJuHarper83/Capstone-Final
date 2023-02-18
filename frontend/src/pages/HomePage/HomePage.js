@@ -50,23 +50,34 @@ const HomePage = () => {
 
   return (
     <>
-    <div className="main">
-      <div className="container"></div>
-        <div>
-          <h1>Home Page for {user.username}!</h1>
+      <body className="home-body">
+        <div className="main">
+          <div className="container"></div>
+          <div>
+            <h1>{user.username}'s Journal App</h1>
+          </div>
+          <div>
+            <button onClick={() => setCollapsible(true)}>
+              Check your progress!
+            </button>
+            {collapsible && (
+              <MoodTracker entries={entry} setCollapsible={setCollapsible} />
+            )}
+          </div>
+          <div className="entry-button">
+            <button onClick={() => setOpen(true)}>Add Entry</button>
+            {open && (
+              <JournalEntryForm
+                addNewEntryProperty={addEntry}
+                setOpen={setOpen}
+              />
+            )}
+          </div>
+          <div>
+            <DisplayEntries entry={entry} />
+          </div>
         </div>
-        <div>
-          <button onClick={() => setOpen(true)}>Add Entry</button>
-          {open && <JournalEntryForm addNewEntryProperty={addEntry} setOpen={setOpen} />}
-        </div>
-        <div>
-        <button onClick={() => setCollapsible(true)}>Check your progress!</button>
-          {collapsible && <MoodTracker entries={entry} setCollapsible={setCollapsible}/>}
-        </div>
-      <div>
-        <DisplayEntries entry={entry} />
-      </div>
-    </div>
+      </body>
     </>
   );
 };

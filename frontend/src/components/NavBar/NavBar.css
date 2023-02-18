@@ -23,6 +23,7 @@ li {
 .navBar {
   background: steelblue;
   box-shadow: 4px 2px 5px gray;
+  justify-content: center;
   color: white;
   position: fixed;
   height: 100%;

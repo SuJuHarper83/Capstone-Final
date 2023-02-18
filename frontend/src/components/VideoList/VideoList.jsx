@@ -12,8 +12,8 @@ const FlexBox = styled.ul`
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const VideoDisplay = styled.li`
-  height: 420px;
-  width: 670px;
+  height: 570px;
+  width: 1000px;
   padding: 1rem;
   display: grid;
   column-gap: 1px;
@@ -41,8 +41,8 @@ const VideoList = ({data}) => {
             {console.log(video.id)}
             <div className="video-responsive">
               <iframe className="video-player"
-                width = "640"
-                height = "385"
+                width = "960"
+                height = "540"
                 src={`https://www.youtube.com/embed/${video.video}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

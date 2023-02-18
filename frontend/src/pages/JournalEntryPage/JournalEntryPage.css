@@ -5,3 +5,23 @@
   padding: 0;
   box-sizing: inherit;
 }
+
+.entry-box {
+  margin: 50px;
+  border-style: inset;
+  border-color: rgb(93, 115, 163);
+  padding: 20px;
+  background: rgb(177, 160, 160, 0.8);
+}
+
+h1 {
+  text-align: center;
+}
+
+.entry-body {
+  background-image: url("https://cdn.wallpapersafari.com/42/21/WZxSHf.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-attachment: fixed;
+  background-size: 1000px 800px;
+}

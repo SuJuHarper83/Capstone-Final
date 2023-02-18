@@ -98,9 +98,8 @@ const JournalEntryForm = ({addNewEntryProperty, setOpen}) => {
                                 />
                             </p>
                             <div className="entry-modal-footer">
-                            <button className="button" type="submit">
-                                Submit
-                            </ button>
+                            <button className="button" type="submit">Submit</ button>
+                            <button className="button" onClick={() => setOpen(false)}>Cancel</button>
                             </div>
                         </form>
                         </div>

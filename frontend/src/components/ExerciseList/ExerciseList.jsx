@@ -63,7 +63,7 @@ const ExerciseList = (props) => {
           >
               {exModalOpen && <ExerciseModal exercise={exercise} setExModalOpen={setExModalOpen}/>}
               {/* {console.log(exerciseId)} */}
-            <Link to={`/exercise_library/${exerciseId}`} onClick={() => setExModalOpen(true)}>
+            <Link className ="title" to={`/exercise_library/${exerciseId}`} onClick={() => setExModalOpen(true)}>
               {exercise.ex_title}
             </Link>
           </ExerciseGrid>
