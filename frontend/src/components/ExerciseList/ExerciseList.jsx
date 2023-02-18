@@ -14,8 +14,8 @@ const FlexBox = styled.ul`
 const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
 
 const ExerciseGrid = styled.li`
-  height: 70px;
-  width: 130px;
+  height: auto;
+  width: 120px;
   padding: 1rem;
   display: grid;
   column-gap: 1px;

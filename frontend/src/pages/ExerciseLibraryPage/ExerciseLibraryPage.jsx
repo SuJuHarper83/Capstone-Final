@@ -62,7 +62,7 @@ const ExerciseLibraryPage = () => {
           </div>
           <ExerciseList exercise={exercise} />
         </div>
-        <button onClick={() => navigate("/")}>Home</button>
+        <button className="ex-home" onClick={() => navigate("/")}>Home</button>
       </body>
     </>
   );

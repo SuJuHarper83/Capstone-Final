@@ -28,7 +28,7 @@ h4 {
     font-family: inherit;
     max-width: 100px;
     /* padding: 0.1rem 0.1rem; */
-  }
+}
   
   /* button border steel blue */
   
@@ -36,10 +36,14 @@ h4 {
     cursor: pointer;
     color: white;
     background-color: steelblue;
-  }
+}
+
+.ex-home {
+    margin-left: 20px;
+}
 
 @media screen and (max-width: 600px) {
     .exercise-body {
         background-color: rgb(125, 125, 148);
     }
-  }
+}
