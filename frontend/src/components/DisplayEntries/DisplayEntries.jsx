@@ -20,8 +20,8 @@ const DisplayEntries = (props) => {
         <table className="display-table">
           <tbody>
             <tr className="display-head">
-              <th className="display-th">Date</th>
-              <th className="display-th">Title</th>
+              <th className="display-title">Title</th>
+              <th className="display-date">Date</th>
             </tr>
             {props.entry
               .filter((entry) => {
@@ -40,10 +40,11 @@ const DisplayEntries = (props) => {
                 return (
                   <tr key={entry.id}>
                     <td className="entry-display">
-                      <Link to={`/${entry.id}`}>{entry.date} </Link>
+                      <Link className="entry-link" to={`/${entry.id}`}>{entry.entry_title}</Link>
+                      <td className="entry-display-b">{entry.input_b}</td>
                     </td>
-                    <td className="entry-display">
-                      <Link to={`/${entry.id}`}>{entry.entry_title}</Link>
+                      <td className="entry-display">
+                      <Link className="entry-link" to={`/${entry.id}`}>{entry.date} </Link>
                     </td>
                   </tr>
                 );

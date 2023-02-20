@@ -10,7 +10,7 @@ const FlexBox = styled.ul`
   flex-wrap: wrap;
 `;
 
-const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
+const colorArray = ["#a3b18a", "#588157", "#6d6875", "#dda15e", "#bc6c25"];
 
 const VideoDisplay = styled.li`
   height: 570px;

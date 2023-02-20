@@ -10,10 +10,10 @@ const VideoLibraryPage = () => {
 
     return (
         <>
-        <body className="exercise-page-body">
-            <div className="exercise-page-title">
-                <h1>Video Library</h1>
-                <h4>...All progress takes place outside your comfort zone...</h4>
+        <body className="video-body">
+            <div>
+                <h1 className="video-page-title">Video Library</h1>
+                <h4 className="video-page-tag">...All progress takes place outside your comfort zone...</h4>
             </div>
                 <div>
                     <VideoList data={DATA} />

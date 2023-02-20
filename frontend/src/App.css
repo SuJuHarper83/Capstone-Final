@@ -24,8 +24,9 @@ p {
 button {
   background-color: transparent;
   border: 2px solid black; 
+  font-weight: bold;
   border-radius: 30px;
-  color: steelblue;
+  color: black;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -37,14 +38,14 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: black;
 }
 
 .navButton button {
   background-color: transparent;
   border: none;
   border-radius: 30px;
-  color: steelblue;
+  color: #283618;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -57,7 +58,7 @@ button:hover {
 .navButton button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: black;
 }
 
 .container {

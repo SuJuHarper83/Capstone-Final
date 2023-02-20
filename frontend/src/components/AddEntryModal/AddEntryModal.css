@@ -15,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(130, 130, 240, 0.4);
+    background: rgba(157, 136, 180, 0.753);
     backdrop-filter: blur(4px);
 }
 
@@ -24,11 +24,11 @@
     display: flex;
     justify-content: center;
     color: black;
-    width: 150;
+    width: 100;
     padding: 1.5rem;
     height: 300;
     position: absolute;
-    background-image: linear-gradient(to bottom right, rgb(140, 140, 184), white);
+    background-image: linear-gradient(to bottom right, rgb(148, 121, 170), rgb(177, 168, 176));
     border: 2px solid black;
     border-radius: 20px;
     left: 50%;
@@ -42,16 +42,20 @@
     justify-content: space-between;
 }
 
+.entry-modal-footer {
+    padding-top: 10px;
+}
+
 button:hover {
     cursor: pointer;
     color: white;
-    background-color: steelblue;
+    background-color: #283618;
 }
 
 .submit {
     transform: translate(10px, -20px);
     padding: 1rem;
-    background: white;
+    background: transparent;
     border-radius: 50px;
     align-items: right;
 }

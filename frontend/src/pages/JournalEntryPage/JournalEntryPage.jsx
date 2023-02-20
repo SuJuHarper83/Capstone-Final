@@ -29,11 +29,11 @@ const JournalEntryPage = () => {
   return (
     <>
     <body className="entry-body">
-      <div className="entry-page-title">
+      <div className="entry-page-tag">
         <h1>Fill your paper with the breathings of your heart...</h1>
       </div>
         <div className="entry-box">
-          <h1>{entry.entry_title}</h1>
+          <h1 className="entry-title">{entry.entry_title}</h1>
           <h2>How did you move today?</h2>
           <p>{entry.input_a}</p>
           <br />
@@ -47,9 +47,10 @@ const JournalEntryPage = () => {
           <p>{entry.mood}</p>
           <br />
           <img src={`http://127.0.0.1:8000${entry.image}`} alt=""/>
+          <br />
+          <button className="btn1" onClick={() => navigate(-1)}>Go back</button>  
+          <button className="btn2" onClick={() => navigate("/")}>Home</button>
         </div>
-      <button className="btn1" onClick={() => navigate(-1)}>Go back</button>  
-      <button className="btn2" onClick={() => navigate("/")}>Home</button>
       <br />
       <br />
       <br />

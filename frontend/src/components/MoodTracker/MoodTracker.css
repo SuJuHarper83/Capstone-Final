@@ -3,4 +3,5 @@
     height: 500px;
     overflow-x: scroll;
     overflow-y: hidden;
+    background-color: transparent;
 }

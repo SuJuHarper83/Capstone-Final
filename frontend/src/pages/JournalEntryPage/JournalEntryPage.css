@@ -9,41 +9,46 @@
 .entry-box {
   margin: 50px;
   border-style: inset;
-  border-color: rgb(93, 115, 163);
+  border-color: rgb(59, 71, 54);
   padding: 20px;
-  background: rgb(177, 160, 160, 0.8);
+  background: rgba(196, 218, 181, 0.8);
 }
 
-h1 {
+.entry-page-tag {
   text-align: center;
+  text-shadow: 1.5px 1.5px rgb(159, 180, 159);
+}
+
+.entry-title {
+  padding-bottom: 15px;
+}
+
+th {
+  text-shadow: 1.5px 1.5px rgb(159, 180, 159);
 }
 
 .entry-body {
-  background-image: url("https://cdn.wallpapersafari.com/42/21/WZxSHf.jpg");
+  background-image: url("https://images.unsplash.com/photo-1494319827402-c4b839aed26b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZsYXR8ZW58MHx8MHx8&w=1000&q=80");
   background-repeat: no-repeat;
   background-position: right;
   background-attachment: fixed;
-  background-size: 1000px 800px;
-}
-
-.btn1 {
-  margin-left: 20px;
+  background-size: 1366px 768px;
 }
 
 .btn2 {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 600px) {
   .entry-body {
     background-image: none;
-    background-color: rgb(150, 190, 174);
+    background-color: rgb(132, 155, 119);
   }
 }
 
 @media screen and (max-width: 600px) {
   .entry-box {
-    background-color: rgb(190, 179, 150);
+    background-color: white;
   }
 }
 

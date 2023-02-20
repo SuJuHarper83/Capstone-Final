@@ -11,7 +11,7 @@ const FlexBox = styled.ul`
   flex-wrap: wrap;
 `;
 
-const colorArray = ["#4f6d7a", "#c0d6df", "#dbe9ee", "#4a6fa5", "#166088"];
+const colorArray = ["#a3b18a", "#588157", "#6d6875", "#dda15e", "#bc6c25"];
 
 const ExerciseGrid = styled.li`
   height: auto;
@@ -63,7 +63,7 @@ const ExerciseList = (props) => {
           >
               {exModalOpen && <ExerciseModal exercise={exercise} setExModalOpen={setExModalOpen}/>}
               {/* {console.log(exerciseId)} */}
-            <Link className ="title" to={`/exercise_library/${exerciseId}`} onClick={() => setExModalOpen(true)}>
+            <Link className ="title" to={`/exercise_library/${exercise.id}`} onClick={() => setExModalOpen(true)}>
               {exercise.ex_title}
             </Link>
           </ExerciseGrid>

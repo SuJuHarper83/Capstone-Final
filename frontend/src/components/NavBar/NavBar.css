@@ -16,12 +16,12 @@ li {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(130, 130, 240, 0.5);
+  background: rgb(157, 192, 147, 0.4);
   backdrop-filter: blur(4px);
 }
 
 .navBar {
-  background: steelblue;
+  background: rgb(95, 138, 102);
   box-shadow: 4px 2px 5px gray;
   justify-content: center;
   color: white;
@@ -62,8 +62,7 @@ li {
 }
 
 .navBar button:hover {
-  /* background: white;
-  color: steelblue; */
+  color: black;
   cursor: pointer;
 }
 

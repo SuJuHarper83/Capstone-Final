@@ -6,31 +6,43 @@
     box-sizing: inherit;
 }
 
+.exercise-page-title {
+  text-align: center;
+  text-decoration: overline underline;
+  text-shadow: 1.5px 1.5px rgb(224, 189, 137);
+}
+
 h4 {
     text-align: center;
 }
 
+.exercise-body {
+    background-image: url("https://thumbs.dreamstime.com/b/floral-beckground-vector-5760879.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-attachment: fixed;
+    background-size: 1366px 768px;
+    padding-bottom: 40px;
+  }
+
 .exercise-box {
     margin: 50px;
     border-style: inset;
-    border-color: rgb(93, 115, 163);
+    border-color: black;
     padding: 20px;
-    background: rgb(177, 160, 160, 0.8);
+    background: rgba(223, 189, 128, 0.842);
 }
 
 .exercise-button {
     margin: auto;
-    background-color: white;
+    background-color: transparent;
     /* border: 2px solid black;  */
     border-radius: 30px;
-    color: steelblue;
+    color: black;
     font-size: 1rem;
     font-family: inherit;
     max-width: 100px;
-    /* padding: 0.1rem 0.1rem; */
 }
-  
-  /* button border steel blue */
   
 .exercise-button:hover {
     cursor: pointer;
@@ -44,6 +56,13 @@ h4 {
 
 @media screen and (max-width: 600px) {
     .exercise-body {
-        background-color: rgb(125, 125, 148);
+      background-image: none;
+      background-color: #dda15e;
     }
-}
+  }
+
+@media screen and (max-width: 600px) {
+    .exercise-box {
+      background-color: white;
+    }
+  }

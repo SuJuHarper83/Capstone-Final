@@ -54,7 +54,7 @@ const HomePage = () => {
         <div className="main">
           <div className="container"></div>
           <div>
-            <h1>{user.username}'s Journal App</h1>
+            <h1 className="homepage-title">{user.username}'s Journal App</h1>
           </div>
           <div>
             <button onClick={() => setCollapsible(true)}>

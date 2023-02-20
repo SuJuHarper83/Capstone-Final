@@ -6,6 +6,27 @@
   box-sizing: inherit;
 }
 
-h4 {
-    text-align: center;
+.video-page-title {
+  text-align: center;
+  text-decoration: overline underline;
+  text-shadow: 1.5px 1.5px rgb(130, 91, 153);
+}
+
+.video-page-tag {
+  text-align: center;
+}
+
+.video-body {
+  background-image: url("https://previews.123rf.com/images/billyphoto2008/billyphoto20081112/billyphoto2008111200011/11472298-abstract-purple-background.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-attachment: fixed;
+  background-size: 1366px 768px;
+}
+
+@media screen and (max-width: 600px) {
+  .video-body {
+    background-image: none;
+    background-color: #dda15e;
+  }
 }

@@ -6,12 +6,30 @@
   box-sizing: inherit;
 }
 
+.home-body {
+  background-image: url("https://images.unsplash.com/photo-1494319827402-c4b839aed26b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZsYXR8ZW58MHx8MHx8&w=1000&q=80");
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: right;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 1366px 768px;
+  padding-bottom: 30px;
+}
+
+.homepage-title {
+  text-align: center;
+  text-decoration: overline underline;
+  text-shadow: 1.5px 1.5px rgb(159, 180, 159);
+}
+
 .entry-button {
   margin: auto;
   background-color: transparent;
   /* border: 2px solid black;  */
   border-radius: 30px;
-  color: steelblue;
+  font-weight: bold;
+  color: black;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -23,24 +41,46 @@
 .entry-button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: #283618;
 }
 
 .chart-button {
   background-color: transparent;
   /* border: 2px solid black;  */
   border-radius: 30px;
-  color: steelblue;
+  color: black;
   font-size: 1rem;
+  font-weight: bold;
   font-family: inherit;
   max-width: 100px;
   padding: 0.5rem 0.5rem;
 }
 
-/* button border steel blue */
-
 .chart-button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: #283618;
+}
+
+.display-box {
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .home-body {
+    background-image: none;
+    background-color: rgb(95, 138, 102);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .entry-display {
+      width: 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .display-date {
+      visibility: hidden;
+  }
 }

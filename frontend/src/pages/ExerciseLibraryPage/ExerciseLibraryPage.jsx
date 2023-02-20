@@ -41,11 +41,10 @@ const ExerciseLibraryPage = () => {
   };
 
   return (
-    <>
       <body className="exercise-body">
-        <div className="exercise-page-title">
-          <h1>Exercise Library</h1>
-          <h4>
+        <div>
+          <h1 className="exercise-page-title">Exercise Library</h1>
+          <h4 className="exercise-page-tag">
             ...True enjoyment comes from activity of the mind and exercise of
             the body; the two are ever united...
           </h4>
@@ -61,10 +60,10 @@ const ExerciseLibraryPage = () => {
             )}
           </div>
           <ExerciseList exercise={exercise} />
+          <br />
+          <button className="ex-home" onClick={() => navigate("/")}>Home</button>
         </div>
-        <button className="ex-home" onClick={() => navigate("/")}>Home</button>
       </body>
-    </>
   );
 };
 
