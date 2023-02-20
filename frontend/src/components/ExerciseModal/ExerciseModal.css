@@ -66,3 +66,27 @@ button:hover {
 .btn-close:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+    .ex-modal-container {
+        width: 300px;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    p {
+        font-size: x-small;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    h2 {
+        font-size: small;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    h3 {
+        font-size: small;
+    }
+  }
